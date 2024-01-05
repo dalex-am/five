@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <script src="index.js"></script>
+  <title>Five</title>
+</head>
+
+<body>
+  <div class="content-wrapper">
+    <div class="words-wrapper">
+      <div class="word word-1 word-active">
+        <div class="char char-1"></div>
+        <div class="char char-2"></div>
+        <div class="char char-3"></div>
+        <div class="char char-4"></div>
+        <div class="char char-5"></div>
+      </div>
+      <div class="word word-2">
+        <div class="char char-1"></div>
+        <div class="char char-2"></div>
+        <div class="char char-3"></div>
+        <div class="char char-4"></div>
+        <div class="char char-5"></div>
+      </div>
+      <div class="word word-3">
+        <div class="char char-1"></div>
+        <div class="char char-2"></div>
+        <div class="char char-3"></div>
+        <div class="char char-4"></div>
+        <div class="char char-5"></div>
+      </div>
+      <div class="word word-4">
+        <div class="char char-1"></div>
+        <div class="char char-2"></div>
+        <div class="char char-3"></div>
+        <div class="char char-4"></div>
+        <div class="char char-5"></div>
+      </div>
+      <div class="word word-5">
+        <div class="char char-1"></div>
+        <div class="char char-2"></div>
+        <div class="char char-3"></div>
+        <div class="char char-4"></div>
+        <div class="char char-5"></div>
+      </div>
+      <div class="word word-6">
+        <div class="char char-1"></div>
+        <div class="char char-2"></div>
+        <div class="char char-3"></div>
+        <div class="char char-4"></div>
+        <div class="char char-5"></div>
+      </div>
+    </div>
+    <div id="it-was-word"></div>
+    <div class="keyboard">
+      <div class="letter-row">
+        <div id="Key1049" class="letter" onclick='handleTouch("й")'>Й</div>
+        <div id="Key1062" class="letter" onclick='handleTouch("ц")'>Ц</div>
+        <div id="Key1059" class="letter" onclick='handleTouch("у")'>У</div>
+        <div id="Key1050" class="letter" onclick='handleTouch("к")'>К</div>
+        <div id="Key1045" class="letter" onclick='handleTouch("е")'>Е</div>
+        <div id="Key1053" class="letter" onclick='handleTouch("н")'>Н</div>
+        <div id="Key1043" class="letter" onclick='handleTouch("г")'>Г</div>
+        <div id="Key1064" class="letter" onclick='handleTouch("ш")'>Ш</div>
+        <div id="Key1065" class="letter" onclick='handleTouch("щ")'>Щ</div>
+        <div id="Key1047" class="letter" onclick='handleTouch("з")'>З</div>
+        <div id="Key1061" class="letter" onclick='handleTouch("х")'>Х</div>
+        <div id="Key1066" class="letter" onclick='handleTouch("ъ")'>Ъ</div>
+      </div>
+      <div class="letter-row">
+        <div id="Key1060" class="letter" onclick='handleTouch("ф")'>Ф</div>
+        <div id="Key1067" class="letter" onclick='handleTouch("ы")'>Ы</div>
+        <div id="Key1042" class="letter" onclick='handleTouch("в")'>В</div>
+        <div id="Key1040" class="letter" onclick='handleTouch("а")'>А</div>
+        <div id="Key1055" class="letter" onclick='handleTouch("п")'>П</div>
+        <div id="Key1056" class="letter" onclick='handleTouch("р")'>Р</div>
+        <div id="Key1054" class="letter" onclick='handleTouch("о")'>О</div>
+        <div id="Key1051" class="letter" onclick='handleTouch("л")'>Л</div>
+        <div id="Key1044" class="letter" onclick='handleTouch("д")'>Д</div>
+        <div id="Key1046" class="letter" onclick='handleTouch("ж")'>Ж</div>
+        <div id="Key1069" class="letter" onclick='handleTouch("э")'>Э</div>
+      </div>
+      <div class="letter-row">
+        <div id="Backspace" class="letter mobile-letter" onclick='handleTouch("", "Backspace")'>←</div>
+        <div id="Key1071" class="letter" onclick='handleTouch("я")'>Я</div>
+        <div id="Key1063" class="letter" onclick='handleTouch("ч")'>Ч</div>
+        <div id="Key1057" class="letter" onclick='handleTouch("с")'>С</div>
+        <div id="Key1052" class="letter" onclick='handleTouch("м")'>М</div>
+        <div id="Key1058" class="letter" onclick='handleTouch("и")'>И</div>
+        <div id="Key1048" class="letter" onclick='handleTouch("т")'>Т</div>
+        <div id="Key1068" class="letter" onclick='handleTouch("ь")'>Ь</div>
+        <div id="Key1041" class="letter" onclick='handleTouch("б")'>Б</div>
+        <div id="Key1070" class="letter" onclick='handleTouch("ю")'>Ю</div>
+        <div id="Key1025" class="letter" onclick='handleTouch("ё")'>Ё</div>
+        <div id="Enter" class="letter mobile-letter" onclick='handleTouch("", "Enter")'>↵</div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1522,63 +1522,36 @@ const fiveCharWordsList = [
   "мётка",
   "метла",
   "метод",
-  "метол",
   "метро",
-  "меццо",
   "мечта",
   "мешок",
-  "мигач",
   "мидия",
   "мизер",
-  "микст",
-  "милка",
-  "милок",
-  "мильт",
-  "мимик",
   "минёр",
   "минор",
   "минус",
   "миома",
-  "мираб",
   "мираж",
-  "мирза",
-  "мирок",
   "мирон",
-  "мирра",
-  "мирта",
   "миска",
   "митоз",
-  "митра",
   "мишка",
-  "мишук",
-  "млеко",
-  "могар",
-  "могол",
-  "модий",
-  "модус",
   "мойва",
   "мойка",
   "мойра",
   "мокко",
-  "мокой",
   "мокша",
   "молва",
-  "молвь",
-  "молка",
   "молот",
   "молох",
-  "молян",
   "моляр",
   "монах",
   "мопед",
   "морда",
   "мороз",
-  "морок",
-  "морцо",
   "моряк",
   "мосол",
   "мосье",
-  "мотет",
   "мотив",
   "мотня",
   "моток",
@@ -2798,9 +2771,15 @@ const changeCharsBackground = (input, activeInputWord) => {
           `.char-${indexInHTML}`
         ).className = `char char-${indexInHTML} semi-correct-char`;
 
-      document.getElementById(
+      const letterClassName = document.getElementById(
         `Key${input[i].toUpperCase().charCodeAt(0)}`
-      ).className = "letter semi-correct-letter";
+      ).className;
+
+      if (letterClassName !== "letter correct-letter") {
+        document.getElementById(
+          `Key${input[i].toUpperCase().charCodeAt(0)}`
+        ).className = "letter semi-correct-letter";
+      }
     } else {
       document.getElementById(
         `Key${input[i].toUpperCase().charCodeAt(0)}`

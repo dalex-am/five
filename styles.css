@@ -170,6 +170,7 @@ body {
     display: flex;
     align-items: flex-end;
     overflow-y: hidden;
+    height: 80%;
   }
 
   .content-wrapper {
@@ -249,6 +250,7 @@ body {
   }
 
   .info {
+    font-size: 12px;
     top: unset;
     bottom: -4px;
     width: calc(100% - 90px);

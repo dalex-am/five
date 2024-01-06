@@ -2810,3 +2810,13 @@ document.body.scrollTo(0, document.body.scrollHeight);
 setTimeout(() => {
   document.addEventListener("keyup", handleKeyUp);
 }, 100);
+
+const infoIconClick = () => {
+  const infoBlock = document.getElementById("info");
+
+  if (infoBlock.className.includes("hidden-info")) {
+    infoBlock.className = "info show-info";
+  } else {
+    infoBlock.className = "info hidden-info";
+  }
+};

@@ -2765,6 +2765,7 @@ const handleKeyUp = (e) => {
     if (currentInput === CORRECT_WORD) {
       changeCharsBackground(currentInput, activeInputWord);
       isWin = true;
+      document.getElementById("reload").className = "reload-icon";
       return;
     }
 
@@ -2774,6 +2775,7 @@ const handleKeyUp = (e) => {
     ) {
       usedWord.push(currentInput);
       changeCharsBackground(currentInput, activeInputWord);
+      document.getElementById("reload").className = "reload-icon";
     } else {
       setErrorInput(activeInputWord);
       return;
@@ -2832,13 +2834,20 @@ const infoIconClick = () => {
 };
 
 const reloadClick = () => {
-  document.getElementById(
-    "it-was-word"
-  ).innerHTML = `Было загадано слово: ${CORRECT_WORD}`;
+  document.getElementById("reload").className = "reload-icon hidden-icon";
+  const correctWordText = document.getElementById("it-was-word");
 
-  setTimeout(() => {
-    document.getElementById("it-was-word").innerHTML = "";
-  }, 3000);
+  if (!isWin && !correctWordText.innerHTML.includes("Загаданное")) {
+    document.getElementById(
+      "it-was-word"
+    ).innerHTML = `Было загадано слово: ${CORRECT_WORD}`;
+
+    setTimeout(() => {
+      correctWordText.innerHTML = "";
+    }, 3000);
+  } else {
+    correctWordText.innerHTML = "";
+  }
 
   CORRECT_WORD = getWord();
 

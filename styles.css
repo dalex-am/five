@@ -45,6 +45,22 @@ body {
   margin-top: 20px;
 }
 
+.show-info {
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: -390px;
+  width: 300px;
+  height: auto;
+  background-color: #f7f7f7;
+}
+
+@media (width < 1200px) {
+  .show-info {
+    left: 2px;
+  }
+}
+
 @media screen and (orientation: landscape) {
   .content-wrapper {
     display: flex;
@@ -112,7 +128,6 @@ body {
   .info-icon img {
     width: 40px;
     height: 40px;
-
   }
 
   .reload-icon {
@@ -133,18 +148,12 @@ body {
     display: none;
   }
 
-  .show-info {
-    display: block;
-    position: absolute;
-    top: 20px;
-    left: -372px;
-    width: 300px;
-    height: auto;
-    background-color: #f7f7f7;
+  .hidden-icon {
+    display: none;
   }
 
   .info {
-    padding: 0 8px;
+    padding: 0 16px;
     box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
     font-size: 16px;
   }

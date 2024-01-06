@@ -2805,7 +2805,7 @@ const handleTouch = (key, code) => {
   handleKeyUp({ key, code });
 };
 
-window.scrollTo(0, document.body.scrollHeight);
+document.body.scrollTo(0, document.body.scrollHeight);
 
 setTimeout(() => {
   document.addEventListener("keyup", handleKeyUp);

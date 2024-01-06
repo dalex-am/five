@@ -108,6 +108,7 @@ body {
   body {
     display: flex;
     align-items: flex-end;
+    overflow-y: hidden;
   }
 
   .content-wrapper {

@@ -2735,6 +2735,11 @@ const handleKeyUp = (e) => {
     return;
   }
 
+  if (activeInputChar && activeInputChar < 5 && e.code === "Enter") {
+    setErrorInput(activeInputWord);
+    return;
+  }
+
   if (activeInputWord <= 6 && activeInputChar > 0 && e.code === "Backspace") {
     setNonErrorInput(activeInputWord);
 
@@ -2787,6 +2792,7 @@ const handleKeyUp = (e) => {
   }
 
   if (/[А-Яа-яЁё]/.test(e.key)) {
+    setNonErrorInput(activeInputWord);
     activeInputChar++;
     document
       .querySelector(`.word-${activeInputWord}`)
@@ -2798,6 +2804,8 @@ const handleKeyUp = (e) => {
 const handleTouch = (key, code) => {
   handleKeyUp({ key, code });
 };
+
+window.scrollTo(0, document.body.scrollHeight);
 
 setTimeout(() => {
   document.addEventListener("keyup", handleKeyUp);

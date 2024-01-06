@@ -260,4 +260,8 @@ body {
   #it-was-word {
     font-size: 12px;
   }
+
+  .mobile-letter {
+    background-color: #919191;
+  }
 }

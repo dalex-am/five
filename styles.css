@@ -168,9 +168,8 @@ body {
 @media screen and (orientation: portrait) {
   body {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     overflow-y: hidden;
-    height: 80%;
   }
 
   .content-wrapper {

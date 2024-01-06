@@ -2654,7 +2654,7 @@ const getWord = () => {
   return fiveCharWordsList[randomNumber];
 };
 
-const CORRECT_WORD = getWord();
+let CORRECT_WORD = getWord();
 
 const getCurrentInput = (inputWord) => {
   let word = "";
@@ -2723,12 +2723,22 @@ const setNonErrorInput = (activeInputWord) => {
   }
 };
 
+const clearWord = (activeInputWord) => {
+  for (let i = 1; i < 6; i++) {
+    const char = document
+      .querySelector(`.word-${activeInputWord}`)
+      .querySelector(`.char-${i}`);
+    char.className = `char char-${i}`;
+    char.innerHTML = "";
+  }
+};
+
 let activeInputWord = 1;
 let activeInputChar = 0;
 
 let isWin = false;
 
-const usedWord = [];
+let usedWord = [];
 
 const handleKeyUp = (e) => {
   if (isWin) {
@@ -2818,5 +2828,40 @@ const infoIconClick = () => {
     infoBlock.className = "info show-info";
   } else {
     infoBlock.className = "info hidden-info";
+  }
+};
+
+const reloadClick = () => {
+  document.getElementById(
+    "it-was-word"
+  ).innerHTML = `Было загадано слово: ${CORRECT_WORD}`;
+
+  setTimeout(() => {
+    document.getElementById("it-was-word").innerHTML = "";
+  }, 3000);
+
+  CORRECT_WORD = getWord();
+
+  activeInputWord = 1;
+  activeInputChar = 0;
+  isWin = false;
+  usedWord = [];
+
+  for (let i = 1; i < 7; i++) {
+    setNonErrorInput(i);
+    clearWord(i);
+    document.querySelector(`.word-${i}`).className = `word word-${i}${
+      i === 1 ? " word-active" : ""
+    }`;
+  }
+
+  const letters = document.getElementsByClassName("letter");
+
+  for (let i = 0; i < letters.length; i++) {
+    const element = letters.item(i);
+
+    if (!element.className.includes("mobile-letter")) {
+      element.className = "letter";
+    }
   }
 };

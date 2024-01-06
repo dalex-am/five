@@ -112,6 +112,21 @@ body {
   .info-icon img {
     width: 40px;
     height: 40px;
+
+  }
+
+  .reload-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 60px;
+    left: -50px;
+    cursor: pointer;
+  }
+
+  .reload-icon img {
+    width: 40px;
+    height: 40px;
   }
 
   .hidden-info {
@@ -206,6 +221,10 @@ body {
   }
 
   .info-icon {
+    display: none;
+  }
+
+  .reload-icon {
     display: none;
   }
 

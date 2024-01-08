@@ -118,12 +118,6 @@ p {
   height: 40px;
 }
 
-.enter-icon img {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-}
-
 .hidden-info {
   display: none;
 }
@@ -234,10 +228,6 @@ p {
     cursor: pointer;
   }
 
-  .enter-icon {
-    display: none;
-  }
-
   .mobile-letter {
     display: none;
   }
@@ -270,6 +260,7 @@ p {
     grid-template-rows: repeat(6, 1fr);
     max-width: 600px;
     max-height: min(720px, 60%);
+    margin-top: 50px;
   }
 
   .word {
@@ -329,7 +320,7 @@ p {
     width: 40px;
     height: 40px;
     left: 20px;
-    bottom: -50px;
+    top: -50px;
   }
 
   .reload-icon {
@@ -337,14 +328,14 @@ p {
     width: 40px;
     height: 40px;
     left: 72px;
-    bottom: -50px;
+    top: -50px;
   }
 
   .info {
     font-size: 14px;
     top: unset;
-    bottom: -4px;
-    width: calc(100% - 90px);
+    top: -4px;
+    width: calc(100% - 110px);
     margin: 0 20px;
     z-index: 1;
     transition: 300ms;
@@ -352,14 +343,6 @@ p {
 
   #it-was-word {
     font-size: 16px;
-  }
-
-  .enter-icon {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    right: 20px;
-    bottom: -50px;
   }
 
   .mobile-letter {

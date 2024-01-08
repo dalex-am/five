@@ -2107,7 +2107,6 @@ const getWord = () => {
 
 const getReloadButton = () => document.getElementById("reload");
 const getInfoButton = () => document.getElementById("info-icon");
-const getEnterButton = () => document.getElementById("enter");
 const getInfoBlock = () => document.getElementById("info");
 const getWordBlock = () => document.getElementById("it-was-word");
 const getLetter = (char) =>
@@ -2196,6 +2195,41 @@ const hideInfo = () => {
   }
 };
 
+const checkWord = () => {
+  const currentInput = getCurrentInput(activeInputWord);
+
+  if (currentInput === CORRECT_WORD) {
+    changeCharsBackground(currentInput, activeInputWord);
+    isWin = true;
+    getReloadButton().className = "reload-icon";
+    getWordBlock().innerHTML = "Вы угадали слово!";
+    return;
+  }
+
+  if (
+    !usedWord.includes(currentInput) &&
+    fiveCharWordsList.includes(currentInput)
+  ) {
+    usedWord.push(currentInput);
+    changeCharsBackground(currentInput, activeInputWord);
+    getReloadButton().className = "reload-icon";
+  } else {
+    setErrorInput(activeInputWord);
+    return;
+  }
+
+  getWordByIndex(
+    activeInputWord
+  ).className = `word word-${activeInputWord} word-filled`;
+  activeInputWord++;
+  activeInputChar = 0;
+  if (activeInputWord <= 6) {
+    getWordByIndex(
+      activeInputWord
+    ).className = `word word-${activeInputWord} word-active`;
+  }
+};
+
 const handleKeyUp = (e) => {
   if (isWin) {
     return;
@@ -2215,41 +2249,6 @@ const handleKeyUp = (e) => {
     activeInputChar--;
   }
 
-  if (activeInputChar === 5 && e.code === "Enter") {
-    const currentInput = getCurrentInput(activeInputWord);
-
-    if (currentInput === CORRECT_WORD) {
-      changeCharsBackground(currentInput, activeInputWord);
-      isWin = true;
-      getReloadButton().className = "reload-icon";
-      getWordBlock().innerHTML = "Вы угадали слово!";
-      return;
-    }
-
-    if (
-      !usedWord.includes(currentInput) &&
-      fiveCharWordsList.includes(currentInput)
-    ) {
-      usedWord.push(currentInput);
-      changeCharsBackground(currentInput, activeInputWord);
-      getReloadButton().className = "reload-icon";
-    } else {
-      setErrorInput(activeInputWord);
-      return;
-    }
-
-    getWordByIndex(
-      activeInputWord
-    ).className = `word word-${activeInputWord} word-filled`;
-    activeInputWord++;
-    activeInputChar = 0;
-    if (activeInputWord <= 6) {
-      getWordByIndex(
-        activeInputWord
-      ).className = `word word-${activeInputWord} word-active`;
-    }
-  }
-
   if (activeInputWord > 6 && !isWin) {
     getWordBlock().innerHTML = `Загаданное слово: ${CORRECT_WORD}`;
   }
@@ -2263,6 +2262,10 @@ const handleKeyUp = (e) => {
     activeInputChar++;
     getCharInWord(activeInputWord, activeInputChar).innerHTML =
       e.key.toUpperCase();
+  }
+
+  if (activeInputChar === 5) {
+    checkWord();
   }
 };
 
@@ -2284,19 +2287,16 @@ const rotateOnReload = () => {
   const flipper = document.getElementById("flipper");
   const infoIcon = getInfoButton();
   const reloadButton = getReloadButton();
-  const enterButton = getEnterButton();
 
   hideInfo();
 
   flipper.className = "words-wrapper flipper";
   infoIcon.className = "info-icon hidden-icon";
   reloadButton.className = "reload-icon hidden-icon";
-  enterButton.className = "enter-icon hidden-icon";
 
   setTimeout(() => {
     flipper.className = "words-wrapper";
     infoIcon.className = "info-icon";
-    enterButton.className = "enter-icon";
   }, 3000);
 };
 

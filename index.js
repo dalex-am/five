@@ -2110,6 +2110,11 @@ const getInfoBlock = () => document.getElementById("info");
 const getWordBlock = () => document.getElementById("it-was-word");
 const getLetter = (char) =>
   document.getElementById(`Key${char.toUpperCase().charCodeAt(0)}`);
+const getWordByIndex = (index) => document.querySelector(`.word-${index}`);
+const getCharInWord = (wordIndex, charIndex) =>
+  document
+    .querySelector(`.word-${wordIndex}`)
+    .querySelector(`.char-${charIndex}`);
 
 let CORRECT_WORD = getWord();
 
@@ -2117,9 +2122,7 @@ const getCurrentInput = (inputWord) => {
   let word = "";
 
   for (let i = 1; i < 6; i++) {
-    const char = document
-      .querySelector(`.word-${inputWord}`)
-      .querySelector(`.char-${i}`).innerHTML;
+    const char = getCharInWord(inputWord, i).innerHTML;
     word += char;
   }
 
@@ -2131,19 +2134,17 @@ const changeCharsBackground = (input, activeInputWord) => {
     const indexInHTML = i + 1;
 
     if (input[i] === CORRECT_WORD[i]) {
-      document
-        .querySelector(`.word-${activeInputWord}`)
-        .querySelector(
-          `.char-${indexInHTML}`
-        ).className = `char char-${indexInHTML} correct-char`;
+      getCharInWord(
+        activeInputWord,
+        indexInHTML
+      ).className = `char char-${indexInHTML} correct-char`;
 
       getLetter(input[i]).className = "letter correct-letter";
     } else if (CORRECT_WORD.includes(input[i])) {
-      document
-        .querySelector(`.word-${activeInputWord}`)
-        .querySelector(
-          `.char-${indexInHTML}`
-        ).className = `char char-${indexInHTML} semi-correct-char`;
+      getCharInWord(
+        activeInputWord,
+        indexInHTML
+      ).className = `char char-${indexInHTML} semi-correct-char`;
 
       const letterClassName = document.getElementById(
         `Key${input[i].toUpperCase().charCodeAt(0)}`
@@ -2160,25 +2161,22 @@ const changeCharsBackground = (input, activeInputWord) => {
 
 const setErrorInput = (activeInputWord) => {
   for (let i = 1; i < 6; i++) {
-    document
-      .querySelector(`.word-${activeInputWord}`)
-      .querySelector(`.char-${i}`).className = `char char-${i} incorrect-char`;
+    getCharInWord(
+      activeInputWord,
+      i
+    ).className = `char char-${i} incorrect-char`;
   }
 };
 
 const setNonErrorInput = (activeInputWord) => {
   for (let i = 1; i < 6; i++) {
-    document
-      .querySelector(`.word-${activeInputWord}`)
-      .querySelector(`.char-${i}`).className = `char char-${i}`;
+    getCharInWord(activeInputWord, i).className = `char char-${i}`;
   }
 };
 
 const clearWord = (activeInputWord) => {
   for (let i = 1; i < 6; i++) {
-    const char = document
-      .querySelector(`.word-${activeInputWord}`)
-      .querySelector(`.char-${i}`);
+    const char = getCharInWord(activeInputWord, i);
     char.className = `char char-${i}`;
     char.innerHTML = "";
   }
@@ -2210,9 +2208,7 @@ const handleKeyUp = (e) => {
   if (activeInputWord <= 6 && activeInputChar > 0 && e.code === "Backspace") {
     setNonErrorInput(activeInputWord);
 
-    document
-      .querySelector(`.word-${activeInputWord}`)
-      .querySelector(`.char-${activeInputChar}`).innerHTML = "";
+    getCharInWord(activeInputWord, activeInputChar).innerHTML = "";
     activeInputChar--;
   }
 
@@ -2238,14 +2234,14 @@ const handleKeyUp = (e) => {
       return;
     }
 
-    document.querySelector(
-      `.word-${activeInputWord}`
+    getWordByIndex(
+      activeInputWord
     ).className = `word word-${activeInputWord} word-filled`;
     activeInputWord++;
     activeInputChar = 0;
     if (activeInputWord <= 6) {
-      document.querySelector(
-        `.word-${activeInputWord}`
+      getWordByIndex(
+        activeInputWord
       ).className = `word word-${activeInputWord} word-active`;
     }
   }
@@ -2261,9 +2257,7 @@ const handleKeyUp = (e) => {
   if (/[А-Яа-яЁё]/.test(e.key)) {
     setNonErrorInput(activeInputWord);
     activeInputChar++;
-    document
-      .querySelector(`.word-${activeInputWord}`)
-      .querySelector(`.char-${activeInputChar}`).innerHTML =
+    getCharInWord(activeInputWord, activeInputChar).innerHTML =
       e.key.toUpperCase();
   }
 };
@@ -2310,7 +2304,7 @@ const reloadClick = () => {
   for (let i = 1; i < 7; i++) {
     setNonErrorInput(i);
     clearWord(i);
-    document.querySelector(`.word-${i}`).className = `word word-${i}${
+    getWordByIndex(i).className = `word word-${i}${
       i === 1 ? " word-active" : ""
     }`;
   }

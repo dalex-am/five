@@ -2296,7 +2296,7 @@ const rotateOnReload = () => {
     infoIcon.className = "info-icon";
     reloadButton.className = "reload-icon";
     enterButton.className = "enter-icon";
-  }, 1500);
+  }, 3000);
 };
 
 const reloadClick = () => {

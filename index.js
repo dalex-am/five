@@ -2203,7 +2203,7 @@ const checkWord = () => {
     isWin = true;
     getReloadButton().className = "reload-icon";
     getWordBlock().innerHTML =
-      "Вы угадали слово! <span id='again' onclick='reloadClick()'>Перезапустить игру</span>";
+      "Вы угадали слово! <span id='again' onclick='reloadClick()'>Заново</span>";
     return;
   }
 
@@ -2229,6 +2229,10 @@ const checkWord = () => {
       activeInputWord
     ).className = `word word-${activeInputWord} word-active`;
   }
+
+  if (activeInputWord > 6 && !isWin) {
+    getWordBlock().innerHTML = `Загаданное слово: ${CORRECT_WORD}. <span id='again' onclick='reloadClick()'>Заново</span>`;
+  }
 };
 
 const handleKeyUp = (e) => {
@@ -2248,10 +2252,6 @@ const handleKeyUp = (e) => {
 
     getCharInWord(activeInputWord, activeInputChar).innerHTML = "";
     activeInputChar--;
-  }
-
-  if (activeInputWord > 6 && !isWin) {
-    getWordBlock().innerHTML = `Загаданное слово: ${CORRECT_WORD}`;
   }
 
   if (activeInputWord > 6 || activeInputChar === 5) {

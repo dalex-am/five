@@ -160,7 +160,7 @@ body {
     cursor: pointer;
   }
 
-  .mobile-letter {
+  .mobile-enter {
     display: none;
   }
 }
@@ -222,6 +222,7 @@ body {
     flex-wrap: nowrap;
     width: 100%;
     height: 30%;
+    justify-content: center;
   }
 
   .letter {
@@ -259,6 +260,22 @@ body {
 
   #it-was-word {
     font-size: 12px;
+  }
+
+  .mobile-enter {
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    right: 20px;
+    bottom: -50px;
+    background-color: #d9d9d9;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+    justify-content: center;
+    border-radius: 4px;
+    border: 1px solid grey;
   }
 
   .mobile-letter {

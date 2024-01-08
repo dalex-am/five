@@ -11,63 +11,66 @@
 
 <body>
   <div class="content-wrapper">
-    <div class="words-wrapper">
-      <div class="info-icon"><img src="./icons/info.svg" alt="Справка" onclick="infoIconClick()"></div>
-      <div id="reload" class="reload-icon hidden-icon"><img src="./icons/reload.svg" alt="Справка"
-          onclick="reloadClick()"></div>
-      <div id="Enter" class="enter-icon" onclick="handleTouch('', 'Enter')"><img src="./icons/enter.svg" alt="Enter">
-      </div>
-      <div id="info" class="info hidden-info">
-        <p>Цель игры - за 6 попыток угадать слово. Буквы могут повторяться.</p>
-        <p>Введите слово, нажмите Enter. Буквы поменяют цвет.</p>
-        <p>Буква на верной позиции - зелёный цвет.</p>
-        <p>Буква присутствует в слове, но на другой позиции - жёлтый цвет.</p>
-        <p>Отсутствующая буква подсвечена не будет.</p>
-        <p>На клавиатуре внизу будут отображаться все введённые буквы по тем же правилам.</p>
-        <p>Если слово подсвечено красным, то его нет в базе, либо оно уже было введено ранее. В счёт попыток такое слово
-          не входит.</p>
-      </div>
-      <div class="word word-1 word-active">
-        <div class="char char-1"></div>
-        <div class="char char-2"></div>
-        <div class="char char-3"></div>
-        <div class="char char-4"></div>
-        <div class="char char-5"></div>
-      </div>
-      <div class="word word-2">
-        <div class="char char-1"></div>
-        <div class="char char-2"></div>
-        <div class="char char-3"></div>
-        <div class="char char-4"></div>
-        <div class="char char-5"></div>
-      </div>
-      <div class="word word-3">
-        <div class="char char-1"></div>
-        <div class="char char-2"></div>
-        <div class="char char-3"></div>
-        <div class="char char-4"></div>
-        <div class="char char-5"></div>
-      </div>
-      <div class="word word-4">
-        <div class="char char-1"></div>
-        <div class="char char-2"></div>
-        <div class="char char-3"></div>
-        <div class="char char-4"></div>
-        <div class="char char-5"></div>
-      </div>
-      <div class="word word-5">
-        <div class="char char-1"></div>
-        <div class="char char-2"></div>
-        <div class="char char-3"></div>
-        <div class="char char-4"></div>
-        <div class="char char-5"></div>
-      </div>
-      <div class="word word-6">
-        <div class="char char-1"></div>
-        <div class="char char-2"></div>
-        <div class="char char-3"></div>
-        <div class="char char-4"></div>
-        <div class="char char-5"></div>
+    <div class="flip-container">
+      <div id="flipper" class="words-wrapper">
+        <div id="info-icon" class="info-icon"><img src="./icons/info.svg" alt="Справка" onclick="infoIconClick()"></div>
+        <div id="reload" class="reload-icon hidden-icon"><img src="./icons/reload.svg" alt="Справка"
+            onclick="reloadClick()"></div>
+        <div id="enter" class="enter-icon" onclick="handleTouch('', 'Enter')"><img src="./icons/enter.svg" alt="Enter">
+        </div>
+        <div id="info" class="info hidden-info">
+          <p>Цель игры - за 6 попыток угадать слово. Буквы могут повторяться.</p>
+          <p>Введите слово, нажмите Enter. Буквы поменяют цвет.</p>
+          <p>Буква на верной позиции - зелёный цвет.</p>
+          <p>Буква присутствует в слове, но на другой позиции - жёлтый цвет.</p>
+          <p>Отсутствующая буква подсвечена не будет.</p>
+          <p>На клавиатуре внизу будут отображаться все введённые буквы по тем же правилам.</p>
+          <p>Если слово подсвечено красным, то его нет в базе, либо оно уже было введено ранее. В счёт попыток такое
+            слово
+            не входит.</p>
+        </div>
+        <div class="word word-1 word-active">
+          <div class="char char-1"></div>
+          <div class="char char-2"></div>
+          <div class="char char-3"></div>
+          <div class="char char-4"></div>
+          <div class="char char-5"></div>
+        </div>
+        <div class="word word-2">
+          <div class="char char-1"></div>
+          <div class="char char-2"></div>
+          <div class="char char-3"></div>
+          <div class="char char-4"></div>
+          <div class="char char-5"></div>
+        </div>
+        <div class="word word-3">
+          <div class="char char-1"></div>
+          <div class="char char-2"></div>
+          <div class="char char-3"></div>
+          <div class="char char-4"></div>
+          <div class="char char-5"></div>
+        </div>
+        <div class="word word-4">
+          <div class="char char-1"></div>
+          <div class="char char-2"></div>
+          <div class="char char-3"></div>
+          <div class="char char-4"></div>
+          <div class="char char-5"></div>
+        </div>
+        <div class="word word-5">
+          <div class="char char-1"></div>
+          <div class="char char-2"></div>
+          <div class="char char-3"></div>
+          <div class="char char-4"></div>
+          <div class="char char-5"></div>
+        </div>
+        <div class="word word-6">
+          <div class="char char-1"></div>
+          <div class="char char-2"></div>
+          <div class="char char-3"></div>
+          <div class="char char-4"></div>
+          <div class="char char-5"></div>
+        </div>
       </div>
     </div>
     <div id="it-was-word"></div>

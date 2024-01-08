@@ -2106,6 +2106,8 @@ const getWord = () => {
 };
 
 const getReloadButton = () => document.getElementById("reload");
+const getInfoButton = () => document.getElementById("info-icon");
+const getEnterButton = () => document.getElementById("enter");
 const getInfoBlock = () => document.getElementById("info");
 const getWordBlock = () => document.getElementById("it-was-word");
 const getLetter = (char) =>
@@ -2117,6 +2119,10 @@ const getCharInWord = (wordIndex, charIndex) =>
     .querySelector(`.char-${charIndex}`);
 
 let CORRECT_WORD = getWord();
+let activeInputWord = 1;
+let activeInputChar = 0;
+let isWin = false;
+let usedWord = [];
 
 const getCurrentInput = (inputWord) => {
   let word = "";
@@ -2182,13 +2188,6 @@ const clearWord = (activeInputWord) => {
   }
 };
 
-let activeInputWord = 1;
-let activeInputChar = 0;
-
-let isWin = false;
-
-let usedWord = [];
-
 const handleKeyUp = (e) => {
   if (isWin) {
     return;
@@ -2219,6 +2218,7 @@ const handleKeyUp = (e) => {
       changeCharsBackground(currentInput, activeInputWord);
       isWin = true;
       getReloadButton().className = "reload-icon";
+      getWordBlock().innerHTML = "Вы угадали слово!";
       return;
     }
 
@@ -2280,7 +2280,27 @@ const infoIconClick = () => {
   }
 };
 
+const rotateOnReload = () => {
+  const flipper = document.getElementById("flipper");
+  const infoIcon = getInfoButton();
+  const reloadButton = getReloadButton();
+  const enterButton = getEnterButton();
+
+  flipper.className = "words-wrapper flipper";
+  infoIcon.className = "info-icon hidden-icon";
+  reloadButton.className = "reload-icon hidden-icon";
+  enterButton.className = "enter-icon hidden-icon";
+
+  setTimeout(() => {
+    flipper.className = "words-wrapper";
+    infoIcon.className = "info-icon";
+    reloadButton.className = "reload-icon";
+    enterButton.className = "enter-icon";
+  }, 1500);
+};
+
 const reloadClick = () => {
+  rotateOnReload();
   getReloadButton().className = "reload-icon hidden-icon";
   const correctWordText = getWordBlock();
 

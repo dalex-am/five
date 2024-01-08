@@ -5,6 +5,7 @@ body {
   height: 100vh;
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 68px;
+  user-select: none;
 }
 
 .word {
@@ -104,6 +105,17 @@ body {
   font-size: 16px;
   z-index: 1;
   transition: 300ms;
+}
+
+.flip-container {
+  perspective: 1000px;
+  display: contents;
+}
+
+.flipper {
+  transform: rotateY(360deg);
+  transition: 1.5s;
+  transform-style: preserve-3d;
 }
 
 @media screen and (orientation: landscape) {
@@ -301,7 +313,7 @@ body {
   }
 
   #it-was-word {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .enter-icon {

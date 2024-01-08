@@ -15,7 +15,7 @@
       <div class="info-icon"><img src="./icons/info.svg" alt="Справка" onclick="infoIconClick()"></div>
       <div id="reload" class="reload-icon hidden-icon"><img src="./icons/reload.svg" alt="Справка"
           onclick="reloadClick()"></div>
-      <div id="Enter" class="mobile-enter" onclick="handleTouch('', 'Enter')">Ввод</div>
+      <div id="Enter" class="mobile-enter" onclick="handleTouch('', 'Enter')">Enter</div>
       <div id="info" class="info hidden-info">
         <p>Цель игры - за 6 попыток угадать слово. Буквы могут повторяться.</p>
         <p>Введите слово, нажмите Enter. Буквы поменяют цвет.</p>
@@ -99,7 +99,6 @@
         <div id="Key1069" class="letter" onclick='handleTouch("э")'>Э</div>
       </div>
       <div class="letter-row">
-        <div id="Backspace" class="letter mobile-letter" onclick='handleTouch("", "Backspace")'>←</div>
         <div id="Key1071" class="letter" onclick='handleTouch("я")'>Я</div>
         <div id="Key1063" class="letter" onclick='handleTouch("ч")'>Ч</div>
         <div id="Key1057" class="letter" onclick='handleTouch("с")'>С</div>
@@ -110,6 +109,7 @@
         <div id="Key1041" class="letter" onclick='handleTouch("б")'>Б</div>
         <div id="Key1070" class="letter" onclick='handleTouch("ю")'>Ю</div>
         <div id="Key1025" class="letter" onclick='handleTouch("ё")'>Ё</div>
+        <div id="Backspace" class="letter mobile-letter" onclick="handleTouch('', 'Backspace')">←</div>
       </div>
     </div>
   </div>

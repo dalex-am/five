@@ -2294,7 +2294,6 @@ const rotateOnReload = () => {
   setTimeout(() => {
     flipper.className = "words-wrapper";
     infoIcon.className = "info-icon";
-    reloadButton.className = "reload-icon";
     enterButton.className = "enter-icon";
   }, 3000);
 };

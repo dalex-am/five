@@ -2105,6 +2105,12 @@ const getWord = () => {
   return fiveCharWordsList[randomNumber];
 };
 
+const getReoladButton = () => document.getElementById("reload");
+const getInfoBlock = () => document.getElementById("info");
+const getWordBlock = () => document.getElementById("it-was-word");
+const getLetter = (char) =>
+  document.getElementById(`Key${char.toUpperCase().charCodeAt(0)}`);
+
 let CORRECT_WORD = getWord();
 
 const getCurrentInput = (inputWord) => {
@@ -2131,9 +2137,7 @@ const changeCharsBackground = (input, activeInputWord) => {
           `.char-${indexInHTML}`
         ).className = `char char-${indexInHTML} correct-char`;
 
-      document.getElementById(
-        `Key${input[i].toUpperCase().charCodeAt(0)}`
-      ).className = "letter correct-letter";
+      getLetter(input[i]).className = "letter correct-letter";
     } else if (CORRECT_WORD.includes(input[i])) {
       document
         .querySelector(`.word-${activeInputWord}`)
@@ -2146,14 +2150,10 @@ const changeCharsBackground = (input, activeInputWord) => {
       ).className;
 
       if (letterClassName !== "letter correct-letter") {
-        document.getElementById(
-          `Key${input[i].toUpperCase().charCodeAt(0)}`
-        ).className = "letter semi-correct-letter";
+        getLetter(input[i]).className = "letter semi-correct-letter";
       }
     } else {
-      document.getElementById(
-        `Key${input[i].toUpperCase().charCodeAt(0)}`
-      ).className = "letter missed-letter";
+      getLetter(input[i]).className = "letter missed-letter";
     }
   }
 };
@@ -2196,7 +2196,7 @@ const handleKeyUp = (e) => {
     return;
   }
 
-  const infoBlock = document.getElementById("info");
+  const infoBlock = getInfoBlock();
 
   if (infoBlock.className.includes("show-info")) {
     infoBlock.className = "info hidden-info";
@@ -2222,7 +2222,7 @@ const handleKeyUp = (e) => {
     if (currentInput === CORRECT_WORD) {
       changeCharsBackground(currentInput, activeInputWord);
       isWin = true;
-      document.getElementById("reload").className = "reload-icon";
+      getReoladButton().className = "reload-icon";
       return;
     }
 
@@ -2232,7 +2232,7 @@ const handleKeyUp = (e) => {
     ) {
       usedWord.push(currentInput);
       changeCharsBackground(currentInput, activeInputWord);
-      document.getElementById("reload").className = "reload-icon";
+      getReoladButton().className = "reload-icon";
     } else {
       setErrorInput(activeInputWord);
       return;
@@ -2251,9 +2251,7 @@ const handleKeyUp = (e) => {
   }
 
   if (activeInputWord > 6 && !isWin) {
-    document.getElementById(
-      "it-was-word"
-    ).innerHTML = `Загаданное слово: ${CORRECT_WORD}`;
+    getWordBlock().innerHTML = `Загаданное слово: ${CORRECT_WORD}`;
   }
 
   if (activeInputWord > 6 || activeInputChar === 5) {
@@ -2279,7 +2277,7 @@ setTimeout(() => {
 }, 100);
 
 const infoIconClick = () => {
-  const infoBlock = document.getElementById("info");
+  const infoBlock = getInfoBlock();
 
   if (infoBlock.className.includes("hidden-info")) {
     infoBlock.className = "info show-info";
@@ -2289,13 +2287,11 @@ const infoIconClick = () => {
 };
 
 const reloadClick = () => {
-  document.getElementById("reload").className = "reload-icon hidden-icon";
-  const correctWordText = document.getElementById("it-was-word");
+  getReoladButton().className = "reload-icon hidden-icon";
+  const correctWordText = getWordBlock();
 
   if (!isWin && !correctWordText.innerHTML.includes("Загаданное")) {
-    document.getElementById(
-      "it-was-word"
-    ).innerHTML = `Было загадано слово: ${CORRECT_WORD}`;
+    correctWordText.innerHTML = `Было загадано слово: ${CORRECT_WORD}`;
 
     setTimeout(() => {
       correctWordText.innerHTML = "";

@@ -94,6 +94,10 @@ p {
   top: -20px;
 }
 
+#again {
+  display: none;
+}
+
 .show-info {
   display: block;
   position: absolute;
@@ -347,6 +351,12 @@ p {
 
   #it-was-word {
     font-size: 16px;
+  }
+
+  #again {
+    display: flex;
+    margin-left: 12px;
+    text-decoration: underline;
   }
 
   .mobile-letter {

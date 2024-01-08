@@ -2202,7 +2202,8 @@ const checkWord = () => {
     changeCharsBackground(currentInput, activeInputWord);
     isWin = true;
     getReloadButton().className = "reload-icon";
-    getWordBlock().innerHTML = "Вы угадали слово!";
+    getWordBlock().innerHTML =
+      "Вы угадали слово! <span id='again' onclick='reloadClick()'>Перезапустить игру</span>";
     return;
   }
 

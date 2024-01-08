@@ -54,7 +54,11 @@ body {
 
 #it-was-word {
   font-size: 20px;
-  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: -20px;
 }
 
 .show-info {
@@ -160,8 +164,9 @@ body {
   }
 
   .keyboard {
+    position: relative;
     font-size: 24px;
-    margin-top: 16px;
+    margin-top: 32px;
   }
 
   .letter-row {
@@ -265,6 +270,7 @@ body {
     width: 100%;
     justify-content: center;
     gap: 2px;
+    position: relative;
   }
 
   .letter-row {

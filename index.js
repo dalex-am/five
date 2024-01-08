@@ -2105,7 +2105,7 @@ const getWord = () => {
   return fiveCharWordsList[randomNumber];
 };
 
-const getReoladButton = () => document.getElementById("reload");
+const getReloadButton = () => document.getElementById("reload");
 const getInfoBlock = () => document.getElementById("info");
 const getWordBlock = () => document.getElementById("it-was-word");
 const getLetter = (char) =>
@@ -2218,7 +2218,7 @@ const handleKeyUp = (e) => {
     if (currentInput === CORRECT_WORD) {
       changeCharsBackground(currentInput, activeInputWord);
       isWin = true;
-      getReoladButton().className = "reload-icon";
+      getReloadButton().className = "reload-icon";
       return;
     }
 
@@ -2228,7 +2228,7 @@ const handleKeyUp = (e) => {
     ) {
       usedWord.push(currentInput);
       changeCharsBackground(currentInput, activeInputWord);
-      getReoladButton().className = "reload-icon";
+      getReloadButton().className = "reload-icon";
     } else {
       setErrorInput(activeInputWord);
       return;
@@ -2281,7 +2281,7 @@ const infoIconClick = () => {
 };
 
 const reloadClick = () => {
-  getReoladButton().className = "reload-icon hidden-icon";
+  getReloadButton().className = "reload-icon hidden-icon";
   const correctWordText = getWordBlock();
 
   if (!isWin && !correctWordText.innerHTML.includes("Загаданное")) {

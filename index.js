@@ -2196,6 +2196,12 @@ const handleKeyUp = (e) => {
     return;
   }
 
+  const infoBlock = document.getElementById("info");
+
+  if (infoBlock.className.includes("show-info")) {
+    infoBlock.className = "info hidden-info";
+  }
+
   if (activeInputChar && activeInputChar < 5 && e.code === "Enter") {
     setErrorInput(activeInputWord);
     return;
@@ -2234,7 +2240,7 @@ const handleKeyUp = (e) => {
 
     document.querySelector(
       `.word-${activeInputWord}`
-    ).className = `word word-${activeInputWord}`;
+    ).className = `word word-${activeInputWord} word-filled`;
     activeInputWord++;
     activeInputChar = 0;
     if (activeInputWord <= 6) {

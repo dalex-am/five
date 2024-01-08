@@ -3,7 +3,8 @@ body {
   padding: 0;
   background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
   height: 100vh;
-  font: 68px "Fira Sans", sans-serif;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 68px;
 }
 
 .word {
@@ -38,6 +39,16 @@ body {
 
 .missed-letter {
   background-color: #d9d9d9;
+}
+
+@media (prefers-color-scheme: dark) {
+  .semi-correct-char {
+    background-color: #cad93f !important;
+  }
+
+  .semi-correct-letter {
+    background-color: #cad93f;
+  }
 }
 
 #it-was-word {
@@ -85,6 +96,8 @@ body {
   padding: 0 16px;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   font-size: 16px;
+  z-index: 1;
+  transition: 300ms;
 }
 
 @media screen and (orientation: landscape) {
@@ -114,10 +127,18 @@ body {
     align-items: center;
     font-size: 70%;
     border-radius: 4px;
+    opacity: 0.4;
+    border: 1px solid grey;
   }
 
   .word-active .char {
-    background-color: #919191;
+    background-color: #d9d9d9;
+    opacity: 0.8;
+  }
+
+  .word-filled .char {
+    background-color: #d9d9d9;
+    opacity: 0.8;
   }
 
   .keyboard {
@@ -201,10 +222,18 @@ body {
     align-items: center;
     font-size: 50%;
     border-radius: 4px;
+    opacity: 0.4;
+    border: 1px solid grey;
   }
 
   .word-active .char {
-    background-color: #919191;
+    background-color: #d9d9d9;
+    opacity: 0.8;
+  }
+
+  .word-filled .char {
+    background-color: #d9d9d9;
+    opacity: 0.8;
   }
 
   .keyboard {
@@ -223,6 +252,7 @@ body {
     width: 100%;
     height: 30%;
     justify-content: center;
+    gap: 2px;
   }
 
   .letter {
@@ -251,11 +281,13 @@ body {
   }
 
   .info {
-    font-size: 12px;
+    font-size: 14px;
     top: unset;
     bottom: -4px;
     width: calc(100% - 90px);
     margin: 0 20px;
+    z-index: 1;
+    transition: 300ms;
   }
 
   #it-was-word {

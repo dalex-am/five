@@ -19,10 +19,10 @@
         <div id="enter" class="enter-icon" onclick="handleTouch('', 'Enter')"><img src="./icons/enter.svg" alt="Enter">
         </div>
         <div id="info" class="info hidden-info">
-          <p>Цель игры - за 6 попыток угадать слово. Буквы могут повторяться.</p>
+          <p>Цель игры - за 6 попыток угадать слово. Буквы могут повторяться, а вместо "ё" везде используется "е".</p>
           <p>Введите слово, нажмите Enter. Буквы поменяют цвет.</p>
-          <p>Буква на верной позиции - зелёный цвет.</p>
-          <p>Буква присутствует в слове, но на другой позиции - жёлтый цвет.</p>
+          <p>Если буква находится на верной позиции, она будет окрашена в зелёный.</p>
+          <p>Буква присутствует в слове, но на другой позиции – жёлтый цвет.</p>
           <p>Отсутствующая буква подсвечена не будет.</p>
           <p>На клавиатуре внизу будут отображаться все введённые буквы по тем же правилам.</p>
           <p>Если слово подсвечено красным, то его нет в базе, либо оно уже было введено ранее. В счёт попыток такое
@@ -111,7 +111,6 @@
         <div id="Key1068" class="letter" onclick='handleTouch("ь")'>Ь</div>
         <div id="Key1041" class="letter" onclick='handleTouch("б")'>Б</div>
         <div id="Key1070" class="letter" onclick='handleTouch("ю")'>Ю</div>
-        <div id="Key1025" class="letter" onclick='handleTouch("ё")'>Ё</div>
         <div id="Backspace" class="letter mobile-letter" onclick="handleTouch('', 'Backspace')">←</div>
       </div>
     </div>

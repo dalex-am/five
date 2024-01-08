@@ -2270,10 +2270,6 @@ const handleTouch = (key, code) => {
   handleKeyUp({ key, code });
 };
 
-setTimeout(() => {
-  document.addEventListener("keyup", handleKeyUp);
-}, 100);
-
 const infoIconClick = () => {
   const infoBlock = getInfoBlock();
 
@@ -2344,3 +2340,7 @@ const reloadClick = () => {
     }
   }
 };
+
+setTimeout(() => {
+  document.addEventListener("keyup", handleKeyUp);
+}, 100);

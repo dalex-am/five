@@ -8,6 +8,30 @@ body {
   user-select: none;
 }
 
+@keyframes shake {
+
+  10%,
+  90% {
+    transform: translateX(-0.5px);
+  }
+
+  20%,
+  80% {
+    transform: translateX(1px);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translateX(-2px);
+  }
+
+  40%,
+  60% {
+    transform: translateX(2px);
+  }
+}
+
 p {
   margin: 4px 0;
 }
@@ -32,6 +56,7 @@ p {
 
 .incorrect-char {
   background-color: #e68989 !important;
+  animation: shake 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) both;
 }
 
 .correct-letter {
@@ -185,7 +210,7 @@ p {
     align-items: center;
     justify-content: center;
     border: 1px solid grey;
-    border-radius: 2px;
+    border-radius: 4px;
     width: 28px;
     height: 32px;
     cursor: pointer;
@@ -245,6 +270,10 @@ p {
     grid-template-rows: repeat(6, 1fr);
     max-width: 600px;
     max-height: min(720px, 60%);
+  }
+
+  .word {
+    margin: 0 8px
   }
 
   .word .char {

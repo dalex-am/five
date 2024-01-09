@@ -2301,13 +2301,9 @@ const handleKeyUp = (e) => {
     return;
   }
 
-  if (
-    /[А-Яа-я]/.test(e.key) ||
-    Object.keys(enToRuConfig).includes(e.key.toLowerCase())
-  ) {
-    const isEnglish = Object.keys(enToRuConfig).includes(e.key.toLowerCase());
-    console.log("e.key", e.key.toLowerCase());
+  const isEnglish = Object.keys(enToRuConfig).includes(e.key.toLowerCase());
 
+  if (/[А-Яа-я]/.test(e.key) || isEnglish) {
     setNonErrorInput(activeInputWord);
     activeInputChar++;
     getCharInWord(activeInputWord, activeInputChar).innerHTML = isEnglish
@@ -2334,13 +2330,8 @@ const infoIconClick = () => {
   }
 };
 
-const rotateOnReload = () => {
-  hideInfo();
-  getReloadButton().className = "reload-icon hidden-icon";
-};
-
 const reloadClick = () => {
-  rotateOnReload();
+  hideInfo();
   getReloadButton().className = "reload-icon hidden-icon";
   const correctWordText = getWordBlock();
 

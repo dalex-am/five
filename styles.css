@@ -142,17 +142,6 @@ p {
   transition: 300ms;
 }
 
-.flip-container {
-  perspective: 1000px;
-  display: contents;
-}
-
-.flipper {
-  transform: rotateY(360deg);
-  transition: 1.5s;
-  transform-style: preserve-3d;
-}
-
 @media screen and (orientation: landscape) {
   .content-wrapper {
     display: flex;
@@ -321,6 +310,10 @@ p {
     border: 1px solid grey;
     border-radius: 2px;
     width: 8%;
+  }
+
+  .incorrect-char {
+    animation: shake 0.7s cubic-bezier(0.98, -0.85, 0.47, 1.65) both;
   }
 
   .info-icon {

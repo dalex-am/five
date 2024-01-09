@@ -629,6 +629,7 @@ const fiveCharWordsList = [
   "карат",
   "карга",
   "кариб",
+  "карма",
   "карта",
   "каска",
   "касса",
@@ -837,6 +838,7 @@ const fiveCharWordsList = [
   "лоток",
   "лотос",
   "лубок",
+  "лузер",
   "лунка",
   "лыжня",
   "люпин",
@@ -925,6 +927,7 @@ const fiveCharWordsList = [
   "мопед",
   "морда",
   "мороз",
+  "морок",
   "моряк",
   "мосол",
   "мосье",
@@ -936,6 +939,7 @@ const fiveCharWordsList = [
   "мочка",
   "мошка",
   "мразь",
+  "мудак",
   "мужик",
   "музей",
   "мулат",
@@ -1175,6 +1179,7 @@ const fiveCharWordsList = [
   "палач",
   "палец",
   "палка",
+  "панда",
   "панно",
   "папка",
   "парад",
@@ -1806,6 +1811,7 @@ const fiveCharWordsList = [
   "фальц",
   "фанат",
   "фарад",
+  "фарси",
   "фасад",
   "фасет",
   "фаска",
@@ -2100,6 +2106,43 @@ const fiveCharWordsList = [
   "яхонт",
 ];
 
+const enToRuConfig = {
+  q: "й",
+  w: "ц",
+  e: "у",
+  r: "к",
+  t: "е",
+  y: "н",
+  u: "г",
+  i: "ш",
+  o: "щ",
+  p: "з",
+  "[": "х",
+  "]": "ъ",
+  a: "ф",
+  s: "ы",
+  d: "в",
+  f: "а",
+  g: "п",
+  h: "р",
+  j: "о",
+  k: "л",
+  l: "д",
+  ";": "ж",
+  "'": "э",
+  z: "я",
+  x: "ч",
+  c: "с",
+  v: "м",
+  b: "и",
+  n: "т",
+  m: "ь",
+  ",": "б",
+  ".": "ю",
+};
+
+const enToRu = (char) => enToRuConfig[char.toLowerCase()];
+
 const getWord = () => {
   const randomNumber = Math.floor(Math.random() * fiveCharWordsList.length);
   return fiveCharWordsList[randomNumber];
@@ -2258,11 +2301,18 @@ const handleKeyUp = (e) => {
     return;
   }
 
-  if (/[А-Яа-я]/.test(e.key)) {
+  if (
+    /[А-Яа-я]/.test(e.key) ||
+    Object.keys(enToRuConfig).includes(e.key.toLowerCase())
+  ) {
+    const isEnglish = Object.keys(enToRuConfig).includes(e.key.toLowerCase());
+    console.log("e.key", e.key.toLowerCase());
+
     setNonErrorInput(activeInputWord);
     activeInputChar++;
-    getCharInWord(activeInputWord, activeInputChar).innerHTML =
-      e.key.toUpperCase();
+    getCharInWord(activeInputWord, activeInputChar).innerHTML = isEnglish
+      ? enToRu(e.key).toUpperCase()
+      : e.key.toUpperCase();
   }
 
   if (activeInputChar === 5) {
@@ -2285,20 +2335,8 @@ const infoIconClick = () => {
 };
 
 const rotateOnReload = () => {
-  const flipper = document.getElementById("flipper");
-  const infoIcon = getInfoButton();
-  const reloadButton = getReloadButton();
-
   hideInfo();
-
-  flipper.className = "words-wrapper flipper";
-  infoIcon.className = "info-icon hidden-icon";
-  reloadButton.className = "reload-icon hidden-icon";
-
-  setTimeout(() => {
-    flipper.className = "words-wrapper";
-    infoIcon.className = "info-icon";
-  }, 3000);
+  getReloadButton().className = "reload-icon hidden-icon";
 };
 
 const reloadClick = () => {

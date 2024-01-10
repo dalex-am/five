@@ -182,12 +182,6 @@ p {
   height: 40px;
 }
 
-.reload-icon img {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-}
-
 .hidden-info {
   display: none;
 }
@@ -230,6 +224,10 @@ p {
     gap: 10px;
     grid-template-rows: repeat(6, 1fr);
     padding: 12px;
+  }
+
+  .words-container {
+    display: contents;
   }
 
   .word .char {
@@ -291,11 +289,25 @@ p {
 
   .reload-icon {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 46px;
+    height: 46px;
     top: 60px;
-    left: -50px;
+    left: -53px;
     cursor: pointer;
+  }
+
+  .reload-icon img {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+  }
+
+  .icons-bg {
+    display: none;
+  }
+
+  .logo {
+    display: none;
   }
 }
 
@@ -335,16 +347,16 @@ p {
     position: absolute;
     width: 28px;
     height: 28px;
-    left: 20px;
-    top: -34px;
+    left: -28px;
+    top: -68px;
   }
 
   .reload-icon {
     position: absolute;
     width: 28px;
     height: 28px;
-    right: 20px;
-    top: -34px;
+    right: -28px;
+    top: -68px;
   }
 
   .info-icon img {
@@ -359,11 +371,19 @@ p {
     height: 28px;
   }
 
+  .logo {
+    position: absolute;
+    height: 37px;
+    width: 85px;
+    top: -77px;
+    font-size: 32px;
+    line-height: 37px;
+  }
+
   .info {
     font-size: 14px;
-    top: unset;
-    top: -4px;
-    width: calc(100% - 110px);
+    top: -36px;
+    left: -48px;
     margin: 0 20px;
     z-index: 1;
     transition: 300ms;
@@ -385,6 +405,10 @@ p {
 
   .words-wrapper {
     position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 
   .word {
@@ -442,7 +466,14 @@ p {
 
   #backspace {
     width: 42px;
-    margin-left: 8px;
+  }
+
+  .icons-bg {
+    position: absolute;
+    background: #ffffff;
+    width: 100%;
+    height: 100vh;
+    top: calc(-32px - 100vh);
   }
 
   /* ------------- КЛАВИАТУРА ------------- */
@@ -472,6 +503,20 @@ p {
     #backspace {
       width: 28px;
     }
+
+    .info {
+      width: 206px;
+      font-size: 10px;
+    }
+
+    .words-container {
+      position: relative;
+      width: 206px;
+    }
+
+    .logo {
+      left: calc((206px - 85px) / 2);
+    }
   }
 
   @media only screen and (min-width: 389px) and (max-width: 768px) {
@@ -492,7 +537,20 @@ p {
     }
 
     #backspace img {
-      height: 56%;
+      height: 46%;
+    }
+
+    .info {
+      width: 272px;
+    }
+
+    .words-container {
+      position: relative;
+      width: 272px;
+    }
+
+    .logo {
+      left: calc((272px - 85px) / 2);
     }
   }
 
@@ -511,6 +569,20 @@ p {
 
     #backspace {
       width: 85px;
+    }
+
+    .info {
+      width: 407px;
+      font-size: 18px;
+    }
+
+    .words-container {
+      position: relative;
+      width: 407px;
+    }
+
+    .logo {
+      left: calc((407px - 85px) / 2);
     }
   }
 
@@ -533,6 +605,20 @@ p {
 
     #backspace img {
       width: 42%;
+    }
+
+    .info {
+      width: 622px;
+      font-size: 32px;
+    }
+
+    .words-container {
+      position: relative;
+      width: 622px;
+    }
+
+    .logo {
+      left: calc((622px - 85px) / 2);
     }
   }
 }

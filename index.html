@@ -21,7 +21,7 @@
         <p>Если буква находится на верной позиции, она будет окрашена в зелёный.</p>
         <p>Буква присутствует в слове, но на другой позиции – жёлтый цвет.</p>
         <p>Отсутствующая буква будет подсвечена белым.</p>
-        <p>На клавиатуре внизу будут отображаться все введённые буквы по тем же правилам.</p>
+        <p>На клавиатуре внизу будут выделяться все введённые буквы.</p>
         <p>Если слово подсвечено красным, то его нет в базе, либо оно уже было введено ранее. В счёт попыток такое
           слово не входит.</p>
       </div>
@@ -107,7 +107,9 @@
         <div id="Key1068" class="letter" onclick='handleTouch("ь")'>Ь</div>
         <div id="Key1041" class="letter" onclick='handleTouch("б")'>Б</div>
         <div id="Key1070" class="letter" onclick='handleTouch("ю")'>Ю</div>
-        <div id="Backspace" class="letter mobile-letter" onclick="handleTouch('', 'Backspace')">←</div>
+        <div id="backspace" class="letter backspace-letter" onclick="handleTouch('', 'Backspace')">
+          <img src="./icons/backspace.svg" alt="Удалить">
+        </div>
       </div>
     </div>
   </div>

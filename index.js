@@ -2365,7 +2365,7 @@ const reloadClick = () => {
   for (let i = 0; i < letters.length; i++) {
     const element = letters.item(i);
 
-    if (!element.className.includes("mobile-letter")) {
+    if (!element.className.includes("backspace-letter")) {
       element.className = "letter";
     }
   }

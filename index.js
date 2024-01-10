@@ -2293,7 +2293,7 @@ const handleKeyUp = (e) => {
   if (activeInputWord <= 6 && activeInputChar > 0 && e.code === "Backspace") {
     setNonErrorInput(activeInputWord);
 
-    getCharInWord(activeInputWord, activeInputChar).innerHTML = "";
+    getCharInWord(activeInputWord, activeInputChar).innerHTML = " ";
     activeInputChar--;
   }
 

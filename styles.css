@@ -128,25 +128,6 @@ p {
   font-weight: 400;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background: var(--bg-color);
-  }
-
-  .semi-correct-char {
-    color: var(--char-semi-correct-color) !important;
-    border-top: var(--border-char-color);
-    border-left: var(--border-char-color);
-    border-right: var(--border-char-color);
-    border-bottom: 1.5px solid var(--char-semi-correct-border) !important;
-  }
-
-  .semi-correct-letter {
-    color: var(--letter-semi-correct-color) !important;
-    background-color: var(--letter-semi-correct-bg) !important;
-  }
-}
-
 #it-was-word {
   font-size: 20px;
   width: 100%;

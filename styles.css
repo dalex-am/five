@@ -519,7 +519,7 @@ p {
     }
   }
 
-  @media only screen and (min-width: 389px) and (max-width: 768px) {
+  @media only screen and (min-width: 389px) and (max-width: 469px) {
     .word .char {
       width: 45px;
       height: 53px;
@@ -551,6 +551,42 @@ p {
 
     .logo {
       left: calc((272px - 85px) / 2);
+    }
+  }
+
+  @media only screen and (min-width: 470px) and (max-width: 768px) {
+    .word .char {
+      width: 51px;
+      height: 57px;
+      font-size: 24px;
+    }
+
+    .letter {
+      width: 32px;
+      height: 48px;
+      font-size: 24px;
+    }
+
+    #backspace {
+      width: 54px;
+    }
+
+    #backspace img {
+      height: 46%;
+    }
+
+    .info {
+      width: 300px;
+      font-size: 16px;
+    }
+
+    .words-container {
+      position: relative;
+      width: 300px;
+    }
+
+    .logo {
+      left: calc((300px - 85px) / 2);
     }
   }
 

@@ -478,7 +478,7 @@ p {
 
   /* ------------- КЛАВИАТУРА ------------- */
 
-  @media only screen and (max-width: 389px) {
+  @media only screen and (max-width: 358px) {
     .word {
       gap: 4px;
       margin-bottom: 8px;
@@ -516,6 +516,42 @@ p {
 
     .logo {
       left: calc((206px - 85px) / 2);
+    }
+  }
+
+  @media only screen and (min-width: 358px) and (max-width: 389px) {
+    .word .char {
+      width: 37px;
+      height: 41px;
+      font-size: 18px;
+    }
+
+    .letter {
+      width: 25px;
+      height: 37px;
+      font-size: 18px;
+    }
+
+    #backspace {
+      width: 42px;
+    }
+
+    #backspace img {
+      height: 46%;
+    }
+
+    .info {
+      width: 228px;
+      font-size: 13px;
+    }
+
+    .words-container {
+      position: relative;
+      width: 228px;
+    }
+
+    .logo {
+      left: calc((228px - 85px) / 2);
     }
   }
 

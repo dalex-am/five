@@ -595,7 +595,7 @@ p {
     }
   }
 
-  @media only screen and (min-width: 470px) and (max-width: 768px) {
+  @media only screen and (min-width: 470px) and (max-width: 578px) {
     .word .char {
       width: 51px;
       height: 57px;
@@ -631,11 +631,47 @@ p {
     }
   }
 
+  @media only screen and (min-width: 579px) and (max-width: 768px) {
+    .word .char {
+      width: 63px;
+      height: 72px;
+      font-size: 36px;
+    }
+
+    .letter {
+      width: 40px;
+      height: 57px;
+      font-size: 28px;
+    }
+
+    #backspace {
+      width: 54px;
+    }
+
+    #backspace img {
+      height: 46%;
+    }
+
+    .info {
+      width: 340px;
+      font-size: 16px;
+    }
+
+    .words-container {
+      position: relative;
+      width: 340px;
+    }
+
+    .logo {
+      left: calc((340px - 85px) / 2);
+    }
+  }
+
   @media only screen and (min-width: 769px) and (max-width: 992px) {
     .word .char {
       width: 72px;
       height: 85px;
-      font-size: 28px;
+      font-size: 38px;
     }
 
     .letter {

@@ -520,6 +520,11 @@ p {
   }
 
   @media only screen and (min-width: 358px) and (max-width: 389px) {
+    .word {
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
     .word .char {
       width: 37px;
       height: 41px;

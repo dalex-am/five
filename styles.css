@@ -1,6 +1,6 @@
 :root {
   --bg-color: #eeeeee;
-  --bg-char: #ffffff;
+  --bg-char: rgba(255, 255, 255, 0.5);
   --bg-char-active: #ffffff;
 
   /* Нижние границы и цвета */
@@ -327,22 +327,6 @@ p {
     padding: 0;
   }
 
-  .word-active .char {
-    color: var(--char-active-color);
-    background-color: var(--bg-char-active);
-    border: 1.5px solid var(--char-active-border);
-  }
-
-  .word-filled .char {
-    color: var(--char-missed);
-    background-color: var(--bg-char-active);
-    border: var(--border-char-color);
-  }
-
-  .incorrect-char {
-    animation: shake 0.7s cubic-bezier(0.98, -0.85, 0.47, 1.65) both;
-  }
-
   .info-icon {
     position: absolute;
     width: 28px;
@@ -431,6 +415,22 @@ p {
     align-items: center;
     border-radius: 4px;
     border: var(--border-char-default);
+  }
+
+  .word-active .char {
+    color: var(--char-active-color);
+    background-color: var(--bg-char-active);
+    border: 1.5px solid var(--char-active-border);
+  }
+
+  .word-filled .char {
+    color: var(--char-missed);
+    background-color: var(--bg-char-active);
+    border: var(--border-char-color);
+  }
+
+  .incorrect-char {
+    animation: shake 0.7s cubic-bezier(0.98, -0.85, 0.47, 1.65) both;
   }
 
   /* ------------- ПОЛЕ ВВОДА ------------- */

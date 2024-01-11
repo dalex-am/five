@@ -113,7 +113,7 @@ p {
 
 .semi-correct-letter {
   color: var(--letter-semi-correct-color) !important;
-  background-color: var(--letter-semi-correct-bg);
+  background-color: var(--letter-semi-correct-bg) !important;
 }
 
 .missed-letter {

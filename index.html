@@ -77,7 +77,11 @@
       </div>
     </div>
     <div class="keyboard">
-      <div id="it-was-word"></div>
+      <div id="result" class="result hidden">
+        <div id="result-icon" class="result-icon"></div>
+        <div id="it-was-word"></div>
+        <div id="start-again" onclick='reloadClick()'>Ещё раз</div>
+      </div>
       <div class="letter-row">
         <div id="Key1049" class="letter" onclick='handleTouch("й")'>Й</div>
         <div id="Key1062" class="letter" onclick='handleTouch("ц")'>Ц</div>

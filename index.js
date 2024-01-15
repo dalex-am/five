@@ -512,6 +512,7 @@ const fiveCharWordsList = [
   "залом",
   "замах",
   "замес",
+  "замер",
   "замок",
   "замша",
   "занос",
@@ -857,6 +858,7 @@ const fiveCharWordsList = [
   "малыш",
   "маляр",
   "мамба",
+  "манга",
   "манго",
   "манеж",
   "манер",
@@ -1090,6 +1092,7 @@ const fiveCharWordsList = [
   "опора",
   "опрос",
   "оптик",
+  "опция",
   "орава",
   "орала",
   "орало",
@@ -1207,6 +1210,7 @@ const fiveCharWordsList = [
   "песик",
   "песнь",
   "песня",
+  "песто",
   "песок",
   "петля",
   "петух",
@@ -1349,6 +1353,7 @@ const fiveCharWordsList = [
   "пчела",
   "пшено",
   "пыжик",
+  "пьянь",
   "пырей",
   "пытка",
   "пышка",
@@ -1366,6 +1371,7 @@ const fiveCharWordsList = [
   "разум",
   "район",
   "ракия",
+  "рамен",
   "рамка",
   "ранец",
   "растр",
@@ -1622,6 +1628,7 @@ const fiveCharWordsList = [
   "струп",
   "струя",
   "стужа",
+  "ступа",
   "судак",
   "судно",
   "судья",
@@ -2122,11 +2129,27 @@ const enToRuConfig = {
   ".": "ю",
 };
 
+const normalWin = {
+  1: "👏🏻",
+  2: "🎉",
+  3: "🧠",
+};
+const normalLose = {
+  1: "🤯",
+  2: "🫠",
+  3: "😪",
+};
+
 const enToRu = (char) => enToRuConfig[char.toLowerCase()];
 
 const getWord = () => {
   const randomNumber = Math.floor(Math.random() * fiveCharWordsList.length);
   return fiveCharWordsList[randomNumber];
+};
+
+const randomInteger = (max = 3) => {
+  const rand = 1 + Math.random() * max;
+  return Math.floor(rand);
 };
 
 const getReloadButton = () => document.getElementById("reload");
@@ -2146,6 +2169,8 @@ let activeInputWord = 1;
 let activeInputChar = 0;
 let isWin = false;
 let usedWord = [];
+
+console.log("CORRECT_WORD", CORRECT_WORD);
 
 const getCurrentInput = (inputWord) => {
   let word = "";
@@ -2219,6 +2244,29 @@ const hideInfo = () => {
   }
 };
 
+const setResult = (win) => {
+  const keyboardsRows = document.getElementsByClassName("letter-row");
+  for (let i = 0; i < 3; i++) {
+    const row = keyboardsRows.item(i);
+    row.classList.add("hidden");
+  }
+
+  const resultBlock = document.getElementById("result");
+  const resultIcon = document.getElementById("result-icon");
+
+  resultBlock.classList.remove("hidden");
+  const random = randomInteger(
+    Object.keys(win ? normalWin : normalLose).keys().length
+  );
+  resultIcon.innerHTML = win ? normalWin[random] : normalLose[random];
+
+  if (!win) {
+    getWordBlock().innerHTML = `Загаданное слово: ${CORRECT_WORD}`;
+  } else {
+    getWordBlock().innerHTML = `Вы угадали слово!`;
+  }
+};
+
 const checkWord = () => {
   const currentInput = getCurrentInput(activeInputWord);
 
@@ -2226,8 +2274,7 @@ const checkWord = () => {
     changeCharsBackground(currentInput, activeInputWord);
     isWin = true;
     getReloadButton().className = "reload-icon";
-    getWordBlock().innerHTML =
-      "Вы угадали слово! <span id='again' onclick='reloadClick()'>Заново</span>";
+    setResult(true);
     return;
   }
 
@@ -2255,7 +2302,7 @@ const checkWord = () => {
   }
 
   if (activeInputWord > 6 && !isWin) {
-    getWordBlock().innerHTML = `Загаданное слово: ${CORRECT_WORD}. <span id='again' onclick='reloadClick()'>Заново</span>`;
+    setResult(false);
   }
 };
 
@@ -2313,18 +2360,17 @@ const infoIconClick = () => {
 
 const reloadClick = () => {
   hideInfo();
-  getReloadButton().className = "reload-icon hidden-icon";
-  const correctWordText = getWordBlock();
+  getReloadButton().classList.add("hidden-icon");
 
-  if (!isWin && !correctWordText.innerHTML.includes("Загаданное")) {
-    correctWordText.innerHTML = `Было загадано слово: ${CORRECT_WORD}`;
-
-    setTimeout(() => {
-      correctWordText.innerHTML = "";
-    }, 3000);
-  } else {
-    correctWordText.innerHTML = "";
+  const keyboardsRows = document.getElementsByClassName("letter-row");
+  for (let i = 0; i < 3; i++) {
+    const row = keyboardsRows.item(i);
+    row.classList.remove("hidden");
   }
+
+  const resultBlock = document.getElementById("result");
+
+  resultBlock.classList.add("hidden");
 
   CORRECT_WORD = getWord();
 

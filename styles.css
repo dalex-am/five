@@ -24,8 +24,6 @@
 
   --border-char-color: 1.5px solid var(--bg-char-active) !important;
   --border-char-default: 1.5px solid #cfcfcf;
-  touch-action: pan-x pan-y;
-  height: 100%
 }
 
 body {
@@ -130,11 +128,6 @@ p {
 
 #it-was-word {
   font-size: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  top: -24px;
 }
 
 #again {
@@ -161,6 +154,25 @@ p {
   position: absolute;
   width: 40px;
   height: 40px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.result {
+  width: 272px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.result-icon {
+  font-size: 72px;
+}
+
+#start-again {
+  display: none;
 }
 
 .hidden-info {
@@ -355,9 +367,7 @@ p {
   }
 
   #it-was-word {
-    font-size: 18px;
-    line-height: 32px;
-    top: -32px;
+    font-size: 16px;
   }
 
   #again {
@@ -419,7 +429,6 @@ p {
   /* ------------- КЛАВИАТУРА ------------- */
   .keyboard {
     position: relative;
-    margin-top: 32px;
   }
 
   .letter-row {
@@ -459,6 +468,19 @@ p {
 
   /* ------------- КЛАВИАТУРА ------------- */
 
+  /* ------------- РЕЗУЛЬТАТЫ ------------- */
+
+  #start-again {
+    border-radius: 4px;
+    background-color: #7a85E4;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* ------------- РЕЗУЛЬТАТЫ ------------- */
+
   @media only screen and (max-width: 358px) {
     .word {
       gap: 4px;
@@ -477,7 +499,7 @@ p {
 
     .letter {
       width: 20px;
-      height: 32px;
+      height: 34px;
       font-size: 14px;
     }
 
@@ -497,6 +519,27 @@ p {
 
     .logo {
       left: calc((206px - 85px) / 2);
+    }
+
+    .keyboard {
+      font-size: 24px;
+      margin-top: 16px;
+      height: 118px;
+    }
+
+    .result-icon {
+      font-size: 50px;
+    }
+
+    #it-was-word {
+      font-size: 14px;
+    }
+
+    #start-again {
+      height: 24px;
+      font-size: 14px;
+      width: 100px;
+      margin-top: 10px;
     }
   }
 
@@ -539,6 +582,27 @@ p {
     .logo {
       left: calc((228px - 85px) / 2);
     }
+
+    .keyboard {
+      font-size: 24px;
+      margin-top: 24px;
+      height: 127px;
+    }
+
+    .result-icon {
+      font-size: 54px;
+    }
+
+    #it-was-word {
+      font-size: 14px;
+    }
+
+    #start-again {
+      height: 26px;
+      font-size: 14px;
+      width: 104px;
+      margin-top: 12px;
+    }
   }
 
   @media only screen and (min-width: 389px) and (max-width: 469px) {
@@ -573,6 +637,27 @@ p {
 
     .logo {
       left: calc((272px - 85px) / 2);
+    }
+
+    .keyboard {
+      font-size: 24px;
+      margin-top: 32px;
+      height: 142px;
+    }
+
+    .result-icon {
+      font-size: 64px;
+    }
+
+    #it-was-word {
+      font-size: 16px;
+    }
+
+    #start-again {
+      height: 36px;
+      font-size: 14px;
+      width: 144px;
+      margin-top: 12px;
     }
   }
 
@@ -610,6 +695,27 @@ p {
     .logo {
       left: calc((300px - 85px) / 2);
     }
+
+    .keyboard {
+      font-size: 24px;
+      margin-top: 32px;
+      height: 160px;
+    }
+
+    .result-icon {
+      font-size: 68px;
+    }
+
+    #it-was-word {
+      font-size: 16px;
+    }
+
+    #start-again {
+      height: 38px;
+      font-size: 14px;
+      width: 144px;
+      margin-top: 12px;
+    }
   }
 
   @media only screen and (min-width: 579px) and (max-width: 768px) {
@@ -646,6 +752,27 @@ p {
     .logo {
       left: calc((340px - 85px) / 2);
     }
+
+    .keyboard {
+      font-size: 24px;
+      margin-top: 32px;
+      height: 188px;
+    }
+
+    .result-icon {
+      font-size: 80px;
+    }
+
+    #it-was-word {
+      font-size: 20px;
+    }
+
+    #start-again {
+      height: 40px;
+      font-size: 18px;
+      width: 148px;
+      margin-top: 15px;
+    }
   }
 
   @media only screen and (min-width: 769px) and (max-width: 992px) {
@@ -677,6 +804,27 @@ p {
 
     .logo {
       left: calc((407px - 85px) / 2);
+    }
+
+    .keyboard {
+      font-size: 24px;
+      margin-top: 32px;
+      height: 236px;
+    }
+
+    .result-icon {
+      font-size: 104px;
+    }
+
+    #it-was-word {
+      font-size: 24px;
+    }
+
+    #start-again {
+      height: 48px;
+      font-size: 22px;
+      width: 172px;
+      margin-top: 21px;
     }
   }
 
@@ -713,6 +861,27 @@ p {
 
     .logo {
       left: calc((622px - 85px) / 2);
+    }
+
+    .keyboard {
+      font-size: 24px;
+      margin-top: 46px;
+      height: 286px;
+    }
+
+    .result-icon {
+      font-size: 136px;
+    }
+
+    #it-was-word {
+      font-size: 28px;
+    }
+
+    #start-again {
+      height: 50px;
+      font-size: 24px;
+      width: 190px;
+      margin-top: 21px;
     }
   }
 }

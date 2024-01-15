@@ -127,7 +127,7 @@ p {
 }
 
 #it-was-word {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 #again {
@@ -161,18 +161,29 @@ p {
 }
 
 .result {
-  width: 272px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-top: -22px;
 }
 
 .result-icon {
   font-size: 72px;
+  line-height: 72px;
 }
 
 #start-again {
-  display: none;
+  border-radius: 4px;
+  background-color: #7a85E4;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+  font-size: 20px;
+  width: 154px;
+  margin-top: 12px;
+  cursor: pointer;
 }
 
 .hidden-info {

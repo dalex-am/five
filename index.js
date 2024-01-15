@@ -2152,7 +2152,7 @@ const randomInteger = (max = 3) => {
   return Math.floor(rand);
 };
 
-const getReloadButton = () => document.getElementById("reload");
+const getFlagButton = () => document.getElementById("flag");
 const getInfoButton = () => document.getElementById("info-icon");
 const getInfoBlock = () => document.getElementById("info");
 const getWordBlock = () => document.getElementById("it-was-word");
@@ -2167,7 +2167,7 @@ const getCharInWord = (wordIndex, charIndex) =>
 let CORRECT_WORD = getWord();
 let activeInputWord = 1;
 let activeInputChar = 0;
-let isWin = false;
+let isWinOrGiveUp = false;
 let usedWord = [];
 
 console.log("CORRECT_WORD", CORRECT_WORD);
@@ -2272,8 +2272,8 @@ const checkWord = () => {
 
   if (currentInput === CORRECT_WORD) {
     changeCharsBackground(currentInput, activeInputWord);
-    isWin = true;
-    getReloadButton().className = "reload-icon";
+    isWinOrGiveUp = true;
+    getFlagButton().className = "flag-icon";
     setResult(true);
     return;
   }
@@ -2284,7 +2284,7 @@ const checkWord = () => {
   ) {
     usedWord.push(currentInput);
     changeCharsBackground(currentInput, activeInputWord);
-    getReloadButton().className = "reload-icon";
+    getFlagButton().className = "flag-icon";
   } else {
     setErrorInput(activeInputWord);
     return;
@@ -2301,13 +2301,13 @@ const checkWord = () => {
     ).className = `word word-${activeInputWord} word-active`;
   }
 
-  if (activeInputWord > 6 && !isWin) {
+  if (activeInputWord > 6 && !isWinOrGiveUp) {
     setResult(false);
   }
 };
 
 const handleKeyUp = (e) => {
-  if (isWin) {
+  if (isWinOrGiveUp) {
     return;
   }
 
@@ -2360,7 +2360,7 @@ const infoIconClick = () => {
 
 const reloadClick = () => {
   hideInfo();
-  getReloadButton().classList.add("hidden-icon");
+  getFlagButton().classList.add("hidden-icon");
 
   const keyboardsRows = document.getElementsByClassName("letter-row");
   for (let i = 0; i < 3; i++) {
@@ -2376,7 +2376,7 @@ const reloadClick = () => {
 
   activeInputWord = 1;
   activeInputChar = 0;
-  isWin = false;
+  isWinOrGiveUp = false;
   usedWord = [];
 
   for (let i = 1; i < 7; i++) {
@@ -2396,6 +2396,13 @@ const reloadClick = () => {
       element.className = "letter";
     }
   }
+};
+
+const flagClick = () => {
+  hideInfo();
+  getFlagButton().classList.add("hidden-icon");
+  isWinOrGiveUp = true;
+  setResult(false);
 };
 
 setTimeout(() => {

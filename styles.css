@@ -280,7 +280,7 @@ p {
     cursor: pointer;
   }
 
-  .reload-icon {
+  .flag-icon {
     position: absolute;
     width: 46px;
     height: 46px;
@@ -289,7 +289,7 @@ p {
     cursor: pointer;
   }
 
-  .reload-icon img {
+  .flag-icon img {
     position: absolute;
     width: 46px;
     height: 46px;
@@ -328,7 +328,7 @@ p {
     top: -68px;
   }
 
-  .reload-icon {
+  .flag-icon {
     position: absolute;
     width: 28px;
     height: 28px;
@@ -342,7 +342,7 @@ p {
     height: 28px;
   }
 
-  .reload-icon img {
+  .flag-icon img {
     position: absolute;
     width: 28px;
     height: 28px;

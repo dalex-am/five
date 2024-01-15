@@ -2170,8 +2170,6 @@ let activeInputChar = 0;
 let isWinOrGiveUp = false;
 let usedWord = [];
 
-console.log("CORRECT_WORD", CORRECT_WORD);
-
 const getCurrentInput = (inputWord) => {
   let word = "";
 
@@ -2399,8 +2397,13 @@ const reloadClick = () => {
 };
 
 const flagClick = () => {
+  if (isWinOrGiveUp) {
+    return;
+  }
+
   hideInfo();
-  getFlagButton().classList.add("hidden-icon");
+  const isMobile = document.body.clientWidth < document.body.clientHeight;
+  isMobile && getFlagButton().classList.add("hidden-icon");
   isWinOrGiveUp = true;
   setResult(false);
 };

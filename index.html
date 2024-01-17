@@ -18,20 +18,34 @@
     <div class="words-wrapper">
       <div class="icons-bg"></div>
       <div class="words-container">
-        <div id="info-icon" class="info-icon"><img src="./icons/info.svg" alt="Справка" onclick="infoIconClick()"></div>
+        <div id="burger-icon" class="burger-icon"><img src="./icons/burger.svg" alt="Меню" onclick="burgerIconClick()">
+        </div>
+        <div id="close-icon" class="close-icon hidden"><img src="./icons/close.svg" alt="Закрыть"
+            onclick="closeIconClick()">
+        </div>
         <div class="logo"><img src="./icons/logo.svg" alt="Logo"></div>
         <div id="flag" class="flag-icon hidden-icon"><img src="./icons/flag.svg" alt="Сдаться" title="Сдаться"
             onclick="flagClick()">
         </div>
-        <div id="info" class="info hidden-info">
-          <p>Цель игры - за 6 попыток угадать слово. Буквы могут повторяться, а вместо "ё" везде используется "е".</p>
-          <p>После ввода слова буквы поменяют цвет.</p>
-          <p>Если буква находится на верной позиции, она будет окрашена в зелёный.</p>
-          <p>Буква присутствует в слове, но на другой позиции – жёлтый цвет.</p>
-          <p>Отсутствующая буква будет подсвечена серым.</p>
-          <p>На клавиатуре внизу будут выделяться все введённые буквы.</p>
-          <p>Если слово подсвечено красным, то его нет в базе, либо оно уже было введено ранее. В счёт попыток такое
-            слово не входит.</p>
+        <div id="info" class="info hidden">
+          <div class="info-header">ПРАВИЛА ИГРЫ</div>
+          <div><b>Цель игры: </b> угадать слово за шесть попыток.</div>
+          <p>
+            <span class="indicator"><img src="./icons/indicatorGreen.svg"></span>
+            Буква угадана верно
+          </p>
+          <p>
+            <span class="indicator"><img src="./icons/indicatorYellow.svg"></span>
+            Буква есть в загаданном слове, но на другой позиции
+          </p>
+          <p>
+            <span class="indicator"><img src="./icons/indicatorGrey.svg"></span>
+            Такой буквы нет в загаданном слове
+          </p>
+          <p>
+            <span class="indicator"><img src="./icons/indicatorRed.svg"></span>
+            Слово введено неправильно или его нет в базе слов
+          </p>
         </div>
         <div class="word word-1 word-active">
           <div class="char char-1"> </div>

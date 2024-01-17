@@ -2152,7 +2152,8 @@ const randomInteger = (max = 3) => {
 };
 
 const getFlagButton = () => document.getElementById("flag");
-const getInfoButton = () => document.getElementById("info-icon");
+const getBurgerButton = () => document.getElementById("burger-icon");
+const getCloseButton = () => document.getElementById("close-icon");
 const getInfoBlock = () => document.getElementById("info");
 const getWordBlock = () => document.getElementById("it-was-word");
 const getLetter = (char) =>
@@ -2234,11 +2235,9 @@ const clearWord = (activeInputWord) => {
 };
 
 const hideInfo = () => {
-  const infoBlock = getInfoBlock();
-
-  if (infoBlock.className.includes("show-info")) {
-    infoBlock.className = "info hidden-info";
-  }
+  getInfoBlock().classList.add("hidden");
+  getBurgerButton().classList.remove("hidden");
+  getCloseButton().classList.add("hidden");
 };
 
 const setResult = (win) => {
@@ -2345,14 +2344,16 @@ const handleTouch = (key, code) => {
   handleKeyUp({ key, code });
 };
 
-const infoIconClick = () => {
-  const infoBlock = getInfoBlock();
+const burgerIconClick = () => {
+  getInfoBlock().classList.remove("hidden");
+  getBurgerButton().classList.add("hidden");
+  getCloseButton().classList.remove("hidden");
+};
 
-  if (infoBlock.className.includes("hidden-info")) {
-    infoBlock.className = "info show-info";
-  } else {
-    infoBlock.className = "info hidden-info";
-  }
+const closeIconClick = () => {
+  getInfoBlock().classList.add("hidden");
+  getBurgerButton().classList.remove("hidden");
+  getCloseButton().classList.add("hidden");
 };
 
 const reloadClick = () => {

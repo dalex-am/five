@@ -134,23 +134,9 @@ p {
   display: none;
 }
 
-.show-info {
-  display: block;
-  position: absolute;
-  top: 20px;
-  left: -390px;
-  width: 300px;
-  height: auto;
-  background-color: var(--info-bg);
-}
-
-@media (width < 1200px) {
-  .show-info {
-    left: 2px;
-  }
-}
-
-.info-icon img {
+.burger-icon img,
+.flag-icon img,
+.close-icon img {
   position: absolute;
   width: 40px;
   height: 40px;
@@ -187,20 +173,32 @@ p {
   cursor: pointer;
 }
 
-.hidden-info {
-  display: none;
-}
-
 .hidden-icon {
   display: none;
 }
 
 .info {
-  padding: 4px 16px;
+  padding: 18px;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  font-size: 16px;
+  font-size: 20px;
+  line-height: 24px;
   z-index: 1;
   transition: 300ms;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 364px;
+  background-color: white;
+}
+
+.info-header {
+  font-size: 24px;
+  line-height: 30px;
+  margin-bottom: 12px;
+}
+
+.indicator {
+  margin: 0 6px;
 }
 
 #backspace {
@@ -283,7 +281,8 @@ p {
     cursor: pointer;
   }
 
-  .info-icon {
+  .burger-icon,
+  .close-icon {
     position: absolute;
     width: 40px;
     height: 40px;
@@ -294,17 +293,11 @@ p {
 
   .flag-icon {
     position: absolute;
-    width: 46px;
-    height: 46px;
+    width: 40px;
+    height: 40px;
     top: 60px;
-    left: -53px;
+    left: -50px;
     cursor: pointer;
-  }
-
-  .flag-icon img {
-    position: absolute;
-    width: 46px;
-    height: 46px;
   }
 
   .icons-bg {
@@ -314,7 +307,13 @@ p {
   .logo {
     position: absolute;
     left: -150px;
-    top: -26px;
+    top: 22px;
+    height: 22px;
+    width: 81px;
+  }
+
+  .logo img {
+    position: absolute;
   }
 }
 
@@ -334,7 +333,8 @@ p {
     padding: 0;
   }
 
-  .info-icon {
+  .burger-icon,
+  .close-icon {
     position: absolute;
     width: 28px;
     height: 28px;
@@ -350,7 +350,8 @@ p {
     top: -68px;
   }
 
-  .info-icon img {
+  .burger-icon img,
+  .close-icon img {
     position: absolute;
     width: 28px;
     height: 28px;

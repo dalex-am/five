@@ -170,6 +170,7 @@ p {
 .result-icon {
   font-size: 72px;
   line-height: 72px;
+  margin-bottom: 8px;
 }
 
 #start-again {
@@ -182,7 +183,7 @@ p {
   height: 36px;
   font-size: 20px;
   width: 154px;
-  margin-top: 12px;
+  margin-top: 4px;
   cursor: pointer;
 }
 

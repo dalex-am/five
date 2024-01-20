@@ -2161,6 +2161,9 @@ const cringeWords = [
   "фимоз",
   "ебашь",
   "шлюха",
+  "понил",
+  "питух",
+  "пипец",
 ];
 
 const allWords = [...cringeWords, ...fiveCharWordsList];

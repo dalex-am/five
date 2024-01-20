@@ -2093,6 +2093,74 @@ const fiveCharWordsList = [
   "яхонт",
 ];
 
+const cringeWords = [
+  "курва",
+  "бебра",
+  "мемас",
+  "калич",
+  "калик",
+  "ряяяя",
+  "нихуя",
+  "похуй",
+  "адын!",
+  "игого",
+  "нигга",
+  "сорян",
+  "пжлст",
+  "павук",
+  "йопта",
+  "мемес",
+  "ъуууъ",
+  "ололо",
+  "блять",
+  "блядь",
+  "пизда",
+  "ебать",
+  "фуфел",
+  "ботан",
+  "факап",
+  "расия",
+  "чувак",
+  "рэпер",
+  "сосис",
+  "рсфср",
+  "стопэ",
+  "сучка",
+  "итачи",
+  "саске",
+  "пивко",
+  "харош",
+  "ебака",
+  "мдауж",
+  "5букв",
+  "инста",
+  "гелик",
+  "ааааа",
+  "агонь",
+  "челик",
+  "аоаоа",
+  "хуета",
+  "говно",
+  "бблгм",
+  "борат",
+  "писюн",
+  "банан",
+  "хуйня",
+  "негры",
+  "пидор",
+  "дырка",
+  "сосок",
+  "чмоня",
+  "жопик",
+  "капец",
+  "ебало",
+  "хуета",
+  "уебан",
+  "псина",
+  "срака",
+  "ебашь",
+];
+
 const enToRuConfig = {
   q: "й",
   w: "ц",
@@ -2141,9 +2209,11 @@ const normalLose = {
 
 const enToRu = (char) => enToRuConfig[char.toLowerCase()];
 
-const getWord = () => {
-  const randomNumber = Math.floor(Math.random() * fiveCharWordsList.length);
-  return fiveCharWordsList[randomNumber];
+const getWord = (isRofl) => {
+  const array = isRofl ? cringeWords : fiveCharWordsList;
+  const randomNumber = Math.floor(Math.random() * array.length);
+
+  return array[randomNumber];
 };
 
 const randomInteger = (max = 3) => {
@@ -2170,6 +2240,7 @@ let activeInputWord = 1;
 let activeInputChar = 0;
 let isWinOrGiveUp = false;
 let usedWord = [];
+let isRofl = false;
 
 const getCurrentInput = (inputWord) => {
   let word = "";
@@ -2276,10 +2347,9 @@ const checkWord = () => {
     return;
   }
 
-  if (
-    !usedWord.includes(currentInput) &&
-    fiveCharWordsList.includes(currentInput)
-  ) {
+  const array = isRofl ? cringeWords : fiveCharWordsList;
+
+  if (!usedWord.includes(currentInput) && array.includes(currentInput)) {
     usedWord.push(currentInput);
     changeCharsBackground(currentInput, activeInputWord);
     getFlagButton().className = "flag-icon";
@@ -2360,8 +2430,8 @@ const closeIconClick = () => {
   getCloseButton().classList.add("hidden");
 };
 
-const reloadClick = () => {
-  hideInfo();
+const reloadClick = (hideInfo = true) => {
+  hideInfo && hideInfo();
   getFlagButton().classList.add("hidden-icon");
 
   const keyboardsRows = document.getElementsByClassName("letter-row");
@@ -2374,7 +2444,7 @@ const reloadClick = () => {
 
   resultBlock.classList.add("hidden");
 
-  CORRECT_WORD = getWord();
+  CORRECT_WORD = getWord(isRofl);
 
   activeInputWord = 1;
   activeInputChar = 0;
@@ -2410,6 +2480,11 @@ const flagClick = () => {
   isMobile && getFlagButton().classList.add("hidden-icon");
   isWinOrGiveUp = true;
   setResult(false);
+};
+
+const roflSwitch = () => {
+  isRofl = !isRofl;
+  reloadClick(false);
 };
 
 setTimeout(() => {

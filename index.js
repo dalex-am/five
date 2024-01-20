@@ -2161,6 +2161,8 @@ const cringeWords = [
   "ебашь",
 ];
 
+const allWords = [...cringeWords, ...fiveCharWordsList];
+
 const enToRuConfig = {
   q: "й",
   w: "ц",
@@ -2207,12 +2209,23 @@ const normalLose = {
   3: "😪",
 };
 
+const cringeWin = {
+  1: "./icons/cringeWin1.svg",
+  2: "./icons/cringeWin2.svg",
+  3: "./icons/cringeWin3.svg",
+};
+const cringeLose = {
+  1: "./icons/cringeLose1.svg",
+  2: "./icons/cringeLose2.svg",
+  3: "./icons/cringeLose3.svg",
+};
+
 const enToRu = (char) => enToRuConfig[char.toLowerCase()];
 
-const getWord = (isRofl) => {
+const getWord = (isRofl = false) => {
   const array = isRofl ? cringeWords : fiveCharWordsList;
   const randomNumber = Math.floor(Math.random() * array.length);
-
+  console.log("array[randomNumber]", array[randomNumber]);
   return array[randomNumber];
 };
 
@@ -2323,16 +2336,28 @@ const setResult = (win) => {
   const resultBlock = document.getElementById("result");
   const resultIcon = document.getElementById("result-icon");
 
+  const winObj = isRofl ? cringeWin : normalWin;
+  const loseObj = isRofl ? cringeLose : normalLose;
+
   resultBlock.classList.remove("hidden");
   const random = randomInteger(
-    Object.keys(win ? normalWin : normalLose).keys().length
+    Object.keys(win ? winObj : loseObj).keys().length
   );
-  resultIcon.innerHTML = win ? normalWin[random] : normalLose[random];
+
+  if (!isRofl) {
+    resultIcon.innerHTML = win ? normalWin[random] : normalLose[random];
+  } else {
+    resultIcon.innerHTML = win
+      ? `<img src="${cringeWin[random]}" alt="Ничёси!">`
+      : `<img src="${cringeLose[random]}" alt="Ничёси!">`;
+  }
 
   if (!win) {
-    getWordBlock().innerHTML = `Загаданное слово: ${CORRECT_WORD}`;
+    getWordBlock().innerHTML = isRofl
+      ? `Это же слово «${CORRECT_WORD}»!`
+      : `Загаданное слово: ${CORRECT_WORD}`;
   } else {
-    getWordBlock().innerHTML = `Вы угадали слово!`;
+    getWordBlock().innerHTML = isRofl ? "" : `Вы угадали слово!`;
   }
 };
 
@@ -2347,7 +2372,7 @@ const checkWord = () => {
     return;
   }
 
-  const array = isRofl ? cringeWords : fiveCharWordsList;
+  const array = isRofl ? allWords : fiveCharWordsList;
 
   if (!usedWord.includes(currentInput) && array.includes(currentInput)) {
     usedWord.push(currentInput);
@@ -2430,8 +2455,11 @@ const closeIconClick = () => {
   getCloseButton().classList.add("hidden");
 };
 
-const reloadClick = (hideInfo = true) => {
-  hideInfo && hideInfo();
+const reloadClick = (isHideInfo = true) => {
+  if (isHideInfo) {
+    hideInfo();
+  }
+
   getFlagButton().classList.add("hidden-icon");
 
   const keyboardsRows = document.getElementsByClassName("letter-row");

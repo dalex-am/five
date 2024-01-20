@@ -2244,6 +2244,7 @@ const getLogo = () => document.getElementById("logo");
 const getCloseButton = () => document.getElementById("close-icon");
 const getInfoBlock = () => document.getElementById("info");
 const getWordBlock = () => document.getElementById("it-was-word");
+const getStartAgainButton = () => document.getElementById("start-again");
 const getLetter = (char) =>
   document.getElementById(`Key${char.toUpperCase().charCodeAt(0)}`);
 const getWordByIndex = (index) => document.querySelector(`.word-${index}`);
@@ -2356,9 +2357,11 @@ const setResult = (win) => {
       : `<img src="${cringeLose[random]}" alt="Ничёси!">`;
   }
 
+  getStartAgainButton().innerHTML = isRofl ? "Погнали дальше" : "Новая игра";
+
   if (!win) {
     getWordBlock().innerHTML = isRofl
-      ? `Это же слово «${CORRECT_WORD}»!`
+      ? `Это же ${CORRECT_WORD}!`
       : `Загаданное слово: ${CORRECT_WORD}`;
   } else {
     getWordBlock().innerHTML = isRofl ? "" : `Вы угадали слово!`;

@@ -2303,11 +2303,9 @@ const checkWord = () => {
 };
 
 const handleKeyUp = (e) => {
-  if (isWinOrGiveUp) {
+  if (isWinOrGiveUp || !getCloseButton().classList.contains("hidden")) {
     return;
   }
-
-  hideInfo();
 
   if (activeInputChar && activeInputChar < 5 && e.code === "Enter") {
     setErrorInput(activeInputWord);

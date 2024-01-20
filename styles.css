@@ -374,11 +374,14 @@ p {
 
   .info {
     font-size: 14px;
-    top: -36px;
-    left: -48px;
-    margin: 0 20px;
+    top: -31px;
+    left: 0;
     z-index: 1;
+    margin: 0;
     transition: 300ms;
+    padding: 64px 32px;
+    height: 100vh;
+    width: calc(100vw - 64px);
   }
 
   .result {
@@ -531,7 +534,6 @@ p {
     }
 
     .info {
-      width: 206px;
       font-size: 10px;
     }
 
@@ -594,7 +596,6 @@ p {
     }
 
     .info {
-      width: 228px;
       font-size: 13px;
     }
 
@@ -652,7 +653,7 @@ p {
     }
 
     .info {
-      width: 272px;
+      font-size: 14px;
     }
 
     .words-container {
@@ -710,7 +711,6 @@ p {
     }
 
     .info {
-      width: 300px;
       font-size: 16px;
     }
 
@@ -768,7 +768,6 @@ p {
     }
 
     .info {
-      width: 340px;
       font-size: 16px;
     }
 
@@ -822,7 +821,6 @@ p {
     }
 
     .info {
-      width: 407px;
       font-size: 18px;
     }
 
@@ -880,7 +878,6 @@ p {
     }
 
     .info {
-      width: 622px;
       font-size: 32px;
     }
 

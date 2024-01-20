@@ -178,7 +178,7 @@ p {
 }
 
 .info {
-  padding: 18px;
+  padding: 18px 18px 316px;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   font-size: 20px;
   line-height: 24px;
@@ -253,7 +253,7 @@ input:checked+label {
 }
 
 input:checked+label:after {
-  left: calc(100% - 5px);
+  left: calc(100% - 2px);
   transform: translateX(-100%);
 }
 

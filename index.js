@@ -2153,6 +2153,7 @@ const randomInteger = (max = 3) => {
 
 const getFlagButton = () => document.getElementById("flag");
 const getBurgerButton = () => document.getElementById("burger-icon");
+const getLogo = () => document.getElementById("logo");
 const getCloseButton = () => document.getElementById("close-icon");
 const getInfoBlock = () => document.getElementById("info");
 const getWordBlock = () => document.getElementById("it-was-word");
@@ -2237,6 +2238,7 @@ const clearWord = (activeInputWord) => {
 const hideInfo = () => {
   getInfoBlock().classList.add("hidden");
   getBurgerButton().classList.remove("hidden");
+  getLogo().classList.remove("hidden");
   getCloseButton().classList.add("hidden");
 };
 
@@ -2345,12 +2347,16 @@ const handleTouch = (key, code) => {
 const burgerIconClick = () => {
   getInfoBlock().classList.remove("hidden");
   getBurgerButton().classList.add("hidden");
+  getLogo().classList.add("hidden");
+  getFlagButton().classList.add("hidden");
   getCloseButton().classList.remove("hidden");
 };
 
 const closeIconClick = () => {
   getInfoBlock().classList.add("hidden");
   getBurgerButton().classList.remove("hidden");
+  getFlagButton().classList.remove("hidden");
+  getLogo().classList.remove("hidden");
   getCloseButton().classList.add("hidden");
 };
 

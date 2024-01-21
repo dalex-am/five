@@ -311,6 +311,7 @@ label:active:after {
     position: relative;
     font-size: 24px;
     margin-top: 32px;
+    height: 120px;
   }
 
   .letter-row {

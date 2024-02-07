@@ -284,6 +284,7 @@ p {
 
 .switcher-label {
   line-height: 31px;
+  flex-grow: 1;
 }
 
 input[type=checkbox] {
@@ -329,11 +330,16 @@ label:active:after {
 }
 
 .arrow {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   cursor: pointer;
+}
+
+.arrow img {
+  width: 28px;
+  height: 28px;
 }
 
 .rotate {

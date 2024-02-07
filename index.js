@@ -2229,7 +2229,6 @@ const enToRu = (char) => enToRuConfig[char.toLowerCase()];
 const getWord = (isRofl = false) => {
   const array = isRofl ? cringeWords : fiveCharWordsList;
   const randomNumber = Math.floor(Math.random() * array.length);
-  return "карта";
   return array[randomNumber];
 };
 

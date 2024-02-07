@@ -455,8 +455,9 @@ label:active:after {
     width: 81px;
   }
 
-  .logo img {
+  .logo svg {
     position: absolute;
+    color: var(--text-color);
   }
 }
 
@@ -493,14 +494,9 @@ label:active:after {
     top: -68px;
   }
 
-  .burger-icon img,
-  .close-icon img {
-    position: absolute;
-    width: 28px;
-    height: 28px;
-  }
-
-  .flag-icon img {
+  .burger-icon svg,
+  .flag-icon img,
+  .close-icon svg {
     position: absolute;
     width: 28px;
     height: 28px;
@@ -513,6 +509,10 @@ label:active:after {
     top: -72px;
     font-size: 32px;
     line-height: 37px;
+  }
+
+  .logo svg {
+    color: var(--text-color);
   }
 
   .info {

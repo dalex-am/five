@@ -1,6 +1,6 @@
 :root {
+  --bg-body-color: #FFFFFF;
   --bg-color: #eeeeee;
-  --bg-body-color: #eeeeee;
   --bg-char: rgba(255, 255, 255, 0.5);
   --bg-char-active: #ffffff;
 
@@ -23,6 +23,7 @@
   --bg-letter: #FFFFFF;
 
   --info-bg: #FFFFFF;
+  --info-border: #CFCFCF;
 
   --border-char-color: 1.5px solid var(--bg-char-active) !important;
   --border-char-default: 1.5px solid #cfcfcf;
@@ -43,8 +44,8 @@
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   .dark {
-    --bg-color: #1F1F21;
     --bg-body-color: #19191F;
+    --bg-color: #1F1F21;
     --bg-char: rgba(25, 25, 31, 0.5);
     --bg-char-active: #19191F;
 
@@ -67,6 +68,7 @@
     --bg-letter: #19191F;
 
     --info-bg: #19191F;
+    --info-border: #313131;
 
     --border-char-color: 1.5px solid var(--bg-char-active) !important;
     --border-char-default: 1.5px solid #313131;
@@ -507,7 +509,8 @@ label:active:after {
 
   .info {
     font-size: 14px;
-    top: -31px;
+    top: -32px;
+    border-top: 1px solid var(--info-border);
     left: 0;
     z-index: 1;
     margin: 0;

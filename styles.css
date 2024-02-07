@@ -1,5 +1,6 @@
 :root {
   --bg-color: #eeeeee;
+  --bg-body-color: #eeeeee;
   --bg-char: rgba(255, 255, 255, 0.5);
   --bg-char-active: #ffffff;
 
@@ -43,6 +44,7 @@
 @media (prefers-color-scheme: dark) {
   .dark {
     --bg-color: #1F1F21;
+    --bg-body-color: #19191F;
     --bg-char: rgba(25, 25, 31, 0.5);
     --bg-char-active: #19191F;
 
@@ -611,7 +613,7 @@ label:active:after {
 
   .icons-bg {
     position: absolute;
-    background: var(--bg-color);
+    background: var(--bg-body-color);
     width: 100%;
     height: 100vh;
     top: calc(-32px - 100vh);

@@ -30,6 +30,7 @@
 
   --text-color: #181818;
   --link-color: #7a85e4;
+  --label-bg: rgba(120, 120, 128, 0.16);
 }
 
 .light {
@@ -74,7 +75,8 @@
     --border-char-default: 1.5px solid #313131;
 
     --text-color: #FFFFFF;
-    --link-color: #7a85e4;
+    --link-color: #545DAE;
+    --label-bg: rgba(120, 120, 128, 0.32);
   }
 }
 
@@ -298,7 +300,7 @@ label {
   text-indent: -9999px;
   width: 51px;
   height: 31px;
-  background: #787890;
+  background: var(--label-bg);
   display: block;
   border-radius: 100px;
   position: relative;

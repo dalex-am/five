@@ -2271,6 +2271,24 @@ const getCurrentInput = (inputWord) => {
   return word.toLowerCase();
 };
 
+const isSemiCorrect = (input, maybeChar) => {
+  if (!CORRECT_WORD.includes(maybeChar)) {
+    return false;
+  }
+
+  const correctPositionsInInput = input
+    .split("")
+    .filter(
+      (char, index) => char === maybeChar && char === CORRECT_WORD[index]
+    ).length;
+
+  const allCorrectPositions = CORRECT_WORD.split("").filter(
+    (char) => char === maybeChar
+  ).length;
+
+  return correctPositionsInInput < allCorrectPositions;
+};
+
 const changeCharsBackground = (input, activeInputWord) => {
   for (let i = 0; i < 5; i++) {
     const indexInHTML = i + 1;
@@ -2283,32 +2301,18 @@ const changeCharsBackground = (input, activeInputWord) => {
       ).className = `char char-${indexInHTML} correct-char`;
 
       getLetter(maybeChar).className = "letter correct-letter";
-    } else if (CORRECT_WORD.includes(maybeChar)) {
-      // проверяем, все ли такие буквы уже стоят на своих местах
-      let correct = 0;
-      input.split("").forEach((char, index) => {
-        if (char === maybeChar && char === CORRECT_WORD[index]) {
-          correct++;
-        }
-      });
+    } else if (isSemiCorrect(input, maybeChar)) {
+      getCharInWord(
+        activeInputWord,
+        indexInHTML
+      ).className = `char char-${indexInHTML} semi-correct-char`;
 
-      const countOfmaybeCharInCorrect = CORRECT_WORD.split("").filter(
-        (char) => char === maybeChar
-      ).length;
+      const letterClassName = document.getElementById(
+        `Key${maybeChar.toUpperCase().charCodeAt(0)}`
+      ).className;
 
-      if (correct < countOfmaybeCharInCorrect) {
-        getCharInWord(
-          activeInputWord,
-          indexInHTML
-        ).className = `char char-${indexInHTML} semi-correct-char`;
-
-        const letterClassName = document.getElementById(
-          `Key${maybeChar.toUpperCase().charCodeAt(0)}`
-        ).className;
-
-        if (letterClassName !== "letter correct-letter") {
-          getLetter(maybeChar).className = "letter semi-correct-letter";
-        }
+      if (letterClassName !== "letter correct-letter") {
+        getLetter(maybeChar).className = "letter semi-correct-letter";
       }
     } else {
       getLetter(maybeChar).className = "letter missed-letter";

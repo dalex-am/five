@@ -611,7 +611,7 @@ label:active:after {
 
   .icons-bg {
     position: absolute;
-    background: #ffffff;
+    background: var(--bg-color);
     width: 100%;
     height: 100vh;
     top: calc(-32px - 100vh);

@@ -37,6 +37,7 @@ const fiveCharWordsList = [
   "ампер",
   "ампир",
   "ангел",
+  "ангар",
   "анион",
   "анкер",
   "анонс",
@@ -651,6 +652,7 @@ const fiveCharWordsList = [
   "кинза",
   "киоск",
   "кирза",
+  "кирка",
   "кисет",
   "киста",
   "кисть",
@@ -2227,6 +2229,7 @@ const enToRu = (char) => enToRuConfig[char.toLowerCase()];
 const getWord = (isRofl = false) => {
   const array = isRofl ? cringeWords : fiveCharWordsList;
   const randomNumber = Math.floor(Math.random() * array.length);
+  return "карта";
   return array[randomNumber];
 };
 
@@ -2272,29 +2275,44 @@ const getCurrentInput = (inputWord) => {
 const changeCharsBackground = (input, activeInputWord) => {
   for (let i = 0; i < 5; i++) {
     const indexInHTML = i + 1;
+    const maybeChar = input[i];
 
-    if (input[i] === CORRECT_WORD[i]) {
+    if (CORRECT_WORD[i] === maybeChar) {
       getCharInWord(
         activeInputWord,
         indexInHTML
       ).className = `char char-${indexInHTML} correct-char`;
 
-      getLetter(input[i]).className = "letter correct-letter";
-    } else if (CORRECT_WORD.includes(input[i])) {
-      getCharInWord(
-        activeInputWord,
-        indexInHTML
-      ).className = `char char-${indexInHTML} semi-correct-char`;
+      getLetter(maybeChar).className = "letter correct-letter";
+    } else if (CORRECT_WORD.includes(maybeChar)) {
+      // проверяем, все ли такие буквы уже стоят на своих местах
+      let correct = 0;
+      input.split("").forEach((char, index) => {
+        if (char === maybeChar && char === CORRECT_WORD[index]) {
+          correct++;
+        }
+      });
 
-      const letterClassName = document.getElementById(
-        `Key${input[i].toUpperCase().charCodeAt(0)}`
-      ).className;
+      const countOfmaybeCharInCorrect = CORRECT_WORD.split("").filter(
+        (char) => char === maybeChar
+      ).length;
 
-      if (letterClassName !== "letter correct-letter") {
-        getLetter(input[i]).className = "letter semi-correct-letter";
+      if (correct < countOfmaybeCharInCorrect) {
+        getCharInWord(
+          activeInputWord,
+          indexInHTML
+        ).className = `char char-${indexInHTML} semi-correct-char`;
+
+        const letterClassName = document.getElementById(
+          `Key${maybeChar.toUpperCase().charCodeAt(0)}`
+        ).className;
+
+        if (letterClassName !== "letter correct-letter") {
+          getLetter(maybeChar).className = "letter semi-correct-letter";
+        }
       }
     } else {
-      getLetter(input[i]).className = "letter missed-letter";
+      getLetter(maybeChar).className = "letter missed-letter";
     }
   }
 };

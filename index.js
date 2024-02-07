@@ -313,7 +313,6 @@ const fiveCharWordsList = [
   "глясе",
   "гнида",
   "гниль",
-  "гнома",
   "гобой",
   "говор",
   "гогот",
@@ -2161,6 +2160,7 @@ const cringeWords = [
   "шлюха",
   "питух",
   "пипец",
+  "еблок",
 ];
 
 const allWords = [...cringeWords, ...fiveCharWordsList];
@@ -2227,7 +2227,6 @@ const enToRu = (char) => enToRuConfig[char.toLowerCase()];
 const getWord = (isRofl = false) => {
   const array = isRofl ? cringeWords : fiveCharWordsList;
   const randomNumber = Math.floor(Math.random() * array.length);
-  console.log("array[randomNumber]", array[randomNumber]);
   return array[randomNumber];
 };
 
@@ -2257,6 +2256,7 @@ let activeInputChar = 0;
 let isWinOrGiveUp = false;
 let usedWord = [];
 let isRofl = false;
+let THEME = "light";
 
 const getCurrentInput = (inputWord) => {
   let word = "";
@@ -2518,6 +2518,13 @@ const flagClick = () => {
 const roflSwitch = () => {
   isRofl = !isRofl;
   reloadClick(false);
+};
+
+const themeSwitch = () => {
+  THEME = THEME === "light" ? "dark" : "light";
+  document.getElementById("root").className = THEME;
+  document.getElementById("theme-name").innerText =
+    THEME === "light" ? "Светлая тема" : "Тёмная тема";
 };
 
 setTimeout(() => {

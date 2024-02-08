@@ -43,41 +43,39 @@
 
 
 /* Dark mode */
-@media (prefers-color-scheme: dark) {
-  .dark {
-    --bg-body-color: #19191F;
-    --bg-color: #1F1F21;
-    --bg-char: rgba(25, 25, 31, 0.5);
-    --bg-char-active: #19191F;
+.dark {
+  --bg-body-color: #19191F;
+  --bg-color: #1F1F21;
+  --bg-char: rgba(25, 25, 31, 0.5);
+  --bg-char-active: #19191F;
 
-    /* Нижние границы и цвета */
-    --char-active-color: #FFFFFF;
-    --char-active-border: #545DAE;
-    --char-correct-color: #347346;
-    --char-correct-border: rgba(44, 137, 42, 0.5);
-    --char-semi-correct-color: #B38327;
-    --char-semi-correct-border: rgba(227, 167, 52, 0.5);
-    --char-missed: #c3c3c3;
-    --char-incorrect-color: #A73535;
-    --char-incorrect-border: rgba(231, 84, 84, 0.5);
+  /* Нижние границы и цвета */
+  --char-active-color: #FFFFFF;
+  --char-active-border: #545DAE;
+  --char-correct-color: #347346;
+  --char-correct-border: rgba(44, 137, 42, 0.5);
+  --char-semi-correct-color: #B38327;
+  --char-semi-correct-border: rgba(227, 167, 52, 0.5);
+  --char-missed: #c3c3c3;
+  --char-incorrect-color: #A73535;
+  --char-incorrect-border: rgba(231, 84, 84, 0.5);
 
-    --letter-correct-color: #347346;
-    --letter-correct-bg: #242B24;
-    --letter-semi-correct-color: #B38327;
-    --letter-semi-correct-bg: #29281D;
-    --letter-missed-bg: #1F1F21;
-    --bg-letter: #19191F;
+  --letter-correct-color: #347346;
+  --letter-correct-bg: #242B24;
+  --letter-semi-correct-color: #B38327;
+  --letter-semi-correct-bg: #29281D;
+  --letter-missed-bg: #1F1F21;
+  --bg-letter: #19191F;
 
-    --info-bg: #19191F;
-    --info-border: #313131;
+  --info-bg: #19191F;
+  --info-border: #313131;
 
-    --border-char-color: 1.5px solid var(--bg-char-active) !important;
-    --border-char-default: 1.5px solid #313131;
+  --border-char-color: 1.5px solid var(--bg-char-active) !important;
+  --border-char-default: 1.5px solid #313131;
 
-    --text-color: #FFFFFF;
-    --link-color: #545DAE;
-    --label-bg: rgba(120, 120, 128, 0.32);
-  }
+  --text-color: #FFFFFF;
+  --link-color: #545DAE;
+  --label-bg: rgba(120, 120, 128, 0.32);
 }
 
 body {

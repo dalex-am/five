@@ -337,9 +337,10 @@ label:active:after {
   cursor: pointer;
 }
 
-.arrow img {
+.arrow svg {
   width: 28px;
   height: 28px;
+  color: var(--link-color);
 }
 
 .rotate {

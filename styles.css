@@ -19,6 +19,7 @@
   --letter-correct-bg: #f2fff2;
   --letter-semi-correct-color: #f5b336;
   --letter-semi-correct-bg: #fffef3;
+  --letter-missed-color: #181818;
   --letter-missed-bg: #eeeeee;
   --bg-letter: #FFFFFF;
 
@@ -64,6 +65,7 @@
   --letter-correct-bg: #242B24;
   --letter-semi-correct-color: #B38327;
   --letter-semi-correct-bg: #29281D;
+  --letter-missed-color: #757575;
   --letter-missed-bg: #1F1F21;
   --bg-letter: #19191F;
 
@@ -167,6 +169,7 @@ p {
 }
 
 .missed-letter {
+  color: var(--letter-missed-color) !important;
   background-color: var(--letter-missed-bg) !important;
 }
 

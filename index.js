@@ -2294,6 +2294,7 @@ const changeCharsBackground = (input, activeInputWord) => {
   for (let i = 0; i < 5; i++) {
     const indexInHTML = i + 1;
     const maybeChar = input[i];
+    const letter = getLetter(maybeChar);
 
     if (CORRECT_WORD[i] === maybeChar) {
       getCharInWord(
@@ -2301,7 +2302,7 @@ const changeCharsBackground = (input, activeInputWord) => {
         indexInHTML
       ).className = `char char-${indexInHTML} correct-char`;
 
-      getLetter(maybeChar).className = "letter correct-letter";
+      letter.className = "letter correct-letter";
     } else if (isSemiCorrect(input, maybeChar)) {
       getCharInWord(
         activeInputWord,
@@ -2312,11 +2313,13 @@ const changeCharsBackground = (input, activeInputWord) => {
         `Key${maybeChar.toUpperCase().charCodeAt(0)}`
       ).className;
 
-      if (letterClassName !== "letter correct-letter") {
-        getLetter(maybeChar).className = "letter semi-correct-letter";
+      if (letterClassName === "letter") {
+        letter.classList.add("semi-correct-letter");
       }
     } else {
-      getLetter(maybeChar).className = "letter missed-letter";
+      if (letter.className === "letter") {
+        letter.classList.add("missed-letter");
+      }
     }
   }
 };
